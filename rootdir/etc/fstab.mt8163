@@ -22,4 +22,4 @@
 /dev/block/platform/soc/11230000.mmc/by-name/tee2     /tee2       emmc defaults defaults
 
 # Add for zram. zramsize can be in numeric (byte) , in percent or auto (detect by the system)
-/dev/block/zram0     /swap_zram0             swap      defaults                             wait,zramsize=75%,max_comp_streams=4
+/dev/block/zram0     /swap_zram0             swap      defaults                             wait,zramsize=75%,max_comp_streams=4,zram_backingdev_size=512M
