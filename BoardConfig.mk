@@ -78,6 +78,9 @@ BOARD_USES_VENDORIMAGE := true
 # Platform
 TARGET_BOARD_PLATFORM := mt8163
 
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt8163
 
