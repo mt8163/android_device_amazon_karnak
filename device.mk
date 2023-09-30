@@ -52,6 +52,9 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor \
     libhwbinder
 
+# Bootanimation
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
