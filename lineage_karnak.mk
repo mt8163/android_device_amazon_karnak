@@ -17,6 +17,9 @@ $(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 # Inherit GApps
 $(call inherit-product-if-exists, vendor/vendor_gms/gms_full_tablet_wifionly.mk)
 
+# Android Go optimisations
+$(call inherit-product, device/amazon/karnak/go_opt.mk)
+
 PRODUCT_NAME := lineage_karnak
 PRODUCT_DEVICE := karnak
 PRODUCT_MANUFACTURER := amzn
