@@ -35,6 +35,9 @@
          scaled proportionally to the smaller buckets.  -1 keeps the default. -->
     <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">384000</integer>
 
+    <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
+    <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
+
     <string-array name="networkAttributes" translatable="false" >
         <item>wifi,1,1,2,-1,true</item>
         <item>bluetooth,7,7,0,-1,true</item>
