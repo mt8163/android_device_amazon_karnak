@@ -9,6 +9,9 @@ ro.vendor.mtk_in_house_tee_support=true
 ro.vendor.mtk_sec_video_path_support=1
 vendor.mtk.vdec.waitkeyframeforplay=1
 
+# Watchdog
+ro.hw_timeout_multiplier=6
+
 # Audio
 ro.mtk_audenh_support=1
 ro.mtk_audio_profiles=1
