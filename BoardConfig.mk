@@ -69,6 +69,9 @@ TARGET_KERNEL_CONFIG := lineageos_karnak_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/linaro/linux-x86/aarch64/aarch64-linux-gnu/bin/aarch64-linux-gnu-
 TARGET_KERNEL_CLANG_COMPILE := false
 
+# Malloc
+MALLOC_SVELTE := true
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 16777216
