@@ -1,0 +1,21 @@
+#
+# Copyright (C) 2023 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+
+# Inherit from device makefile.
+$(call inherit-product, device/amazon/karnak/device.mk)
+
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
+
+PRODUCT_NAME := lineage_karnak
+PRODUCT_DEVICE := karnak
+PRODUCT_MANUFACTURER := amzn
+PRODUCT_BRAND := google
+PRODUCT_MODEL := Fire
