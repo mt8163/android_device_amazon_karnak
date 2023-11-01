@@ -25,3 +25,11 @@ vendor/lib/libnvram_platform.so
 vendor/lib/libnvram.so
 vendor/lib/vendor.mediatek.hardware.nvram@1.0.so
 vendor/lib/vendor.mediatek.hardware.nvram@1.1.so
+
+# Keymaster
+vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
+vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
+vendor/lib/hw/keystore.mt8163.so
+vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
+vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
+vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so

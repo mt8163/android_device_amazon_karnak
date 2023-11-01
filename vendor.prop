@@ -9,3 +9,7 @@ debug.sf.earlyGl.sf.duration=27600000
 debug.sf.earlyGl.app.duration=20000000
 debug.sf.hwc.min.duration=17000000
 ro.vendor.mtk_pq_color_mode=1
+
+# Keymaster
+ro.crypto.volume.filenames_mode=aes-256-cts
+ro.vendor.mtk_in_house_tee_support=true

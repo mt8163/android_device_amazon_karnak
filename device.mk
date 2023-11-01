@@ -16,6 +16,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libdrm.vendor
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0-impl \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl
+
+PRODUCT_PACKAGES += \
+    libkeymaster3device.vendor
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
