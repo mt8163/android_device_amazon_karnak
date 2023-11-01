@@ -76,16 +76,6 @@ vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 vendor/lib/hw/gatekeeper.mt8163.so
 vendor/lib/hw/libSoftGatekeeper.so
 
-# Media (Dolby)
-lib/vendor.dolby.hardware.dms@1.0.so
-vendor/bin/hw/vendor.dolby.hardware.dms@1.0-service
-vendor/etc/dolby/dax-default.xml
-vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc
-vendor/lib/libdapparamstorage.so
-vendor/lib/libdlbdsservice.so
-vendor/lib/vendor.dolby.hardware.dms@1.0-impl.so
-vendor/lib/vendor.dolby.hardware.dms@1.0.so
-
 # Audio (FX modules)
 vendor/lib/soundfx/libdynproc.so
 vendor/lib/soundfx/libswdap.so
@@ -229,9 +219,6 @@ vendor/lib/libhevce_sb.ca7.android.so
 vendor/lib/libjpeg-alpha_vendor.so
 vendor/lib/libmhalImageCodec.so
 vendor/lib/libmp4enc_sa.ca7.so
-vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/libstagefright_soft_ddpdec.so
-vendor/lib/libstagefrightdolby.so
 vendor/lib/libstagefrighthw.so
 vendor/lib/libvc1dec_sa.ca7.so
 vendor/lib/libvcodec_oal.so
