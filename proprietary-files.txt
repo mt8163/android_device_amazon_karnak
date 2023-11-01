@@ -190,3 +190,20 @@ vendor/etc/audio-algorithms/EQ_2048.cfg
 vendor/etc/audio-algorithms/MBCL.cfg
 vendor/etc/audio-algorithms/coefs_FilterBank.cfg
 vendor/etc/audio-algorithms/coefs_FilterBank_160.cfg
+
+# Wi-Fi
+vendor/lib/WifiMetrics.so
+vendor/lib/fireos.hardware.connectivity@1.0.so
+vendor/firmware/ROMv2_lm_patch_1_0_hdr.bin
+vendor/firmware/ROMv2_lm_patch_1_1_hdr.bin
+vendor/firmware/SMicBin_rt5518_mode11.dat
+vendor/firmware/SMicBin_rt5518_mode12.dat
+vendor/firmware/SMicBin_rt5518_mode13.dat
+vendor/firmware/SMicBin_rt5518_mode14.dat
+vendor/firmware/SMicBin_rt5518_mode21.dat
+vendor/firmware/SMicBin_rt5518_mode22.dat
+vendor/firmware/SMicBin_rt5518_mode23.dat
+vendor/firmware/SMicBin_rt5518_mode24.dat
+vendor/firmware/WIFI_RAM_CODE_8163
+vendor/firmware/WMT_SOC.cfg
+vendor/lib/fireos.hardware.connectivity.networkpower@1.0.so

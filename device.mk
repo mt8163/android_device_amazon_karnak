@@ -90,5 +90,13 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi-service \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    libwifi-hal-mt66xx
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/amazon/karnak/karnak-vendor.mk)
