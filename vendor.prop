@@ -1,4 +1,5 @@
 # Media
+debug.fdsan=warn_once
 debug.stagefright.ccodec=0
 media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.mtk_key_manager_kb_path=1
