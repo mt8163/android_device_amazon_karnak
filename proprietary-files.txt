@@ -209,7 +209,6 @@ vendor/firmware/WMT_SOC.cfg
 vendor/lib/fireos.hardware.connectivity.networkpower@1.0.so
 
 # Bluetooth
-vendor/lib/fireos.hardware.idme@1.0.so
 vendor/lib/libbluetoothem_mtk.so
 vendor/lib/libbluetooth_hw_test.so
 vendor/lib/libbluetooth_mtk.so
@@ -279,3 +278,10 @@ vendor/etc/init/init.thermal.rc
 vendor/etc/init/init.thermal_manager.rc
 vendor/lib/fireos.hardware.amazonthermal@1.0.so
 vendor/lib/hw/fireos.hardware.amazonthermal@1.0-impl.so
+
+#IDME
+vendor/bin/hw/fireos.hardware.idme@1.0-service
+vendor/bin/idme
+vendor/etc/init/fireos.hardware.idme@1.0-service.rc
+vendor/lib/hw/fireos.hardware.idme@1.0-impl.so
+
