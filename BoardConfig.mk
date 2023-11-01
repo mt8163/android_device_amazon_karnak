@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/amazon/karnak
 
+# APEX
+OVERRIDE_TARGET_FLATTEN_APEX := true
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
