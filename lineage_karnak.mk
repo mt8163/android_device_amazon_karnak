@@ -22,3 +22,5 @@ PRODUCT_DEVICE := karnak
 PRODUCT_MANUFACTURER := amzn
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Fire
+
+BUILD_FINGERPRINT := google/tangorpro/tangorpro:14/UP1A.231005.007/10754064:user/release-keys
