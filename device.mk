@@ -176,6 +176,10 @@ PRODUCT_PACKAGES += \
 	libshim_mtkcam.vendor \
 	libshim_gui
 
+PRODUCT_PACKAGES += \
+    libladder \
+    libudf
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
