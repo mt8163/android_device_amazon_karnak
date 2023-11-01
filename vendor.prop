@@ -1,3 +1,12 @@
+# Audio
+ro.mtk_audenh_support=1
+ro.mtk_audio_profiles=1
+ro.mtk_bessurround_support=1
+ro.vendor.mtk_audio_alac_support=1
+ro.vendor.mtk_audio_ape_support=1
+ro.vendor.mtk_audio_tuning_tool_ver=V2.2
+ro.vendor.mtk_besloudness_support=1
+
 # Display
 debug.sf.disable_backpressure=1
 debug.sf.use_phase_offsets_as_durations=1
