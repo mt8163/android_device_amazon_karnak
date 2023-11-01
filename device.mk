@@ -110,7 +110,8 @@ PRODUCT_PACKAGES += \
     
 # Libshims
 PRODUCT_PACKAGES += \
-	libshim_nvram
+	libshim_nvram \
+	libshim_keymaster
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
