@@ -1,0 +1,3 @@
+# Display
+debug.sf.disable_backpressure=1
+ro.vendor.mtk_pq_color_mode=1

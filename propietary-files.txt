@@ -1,0 +1,16 @@
+# Unpinned blobs from karnak-user 9 PS7327.3336N 0026743736320 amz-p,release-keys
+
+# Display
+vendor/lib/egl/libGLES_mali.so
+vendor/lib/hw/gralloc.mt8163.so
+vendor/lib/hw/hwcomposer.mt8163.so
+vendor/lib/hw/memtrack.mt8163.so
+vendor/lib/libbwc.so
+vendor/lib/libdpframework.so
+vendor/lib/libged.so
+vendor/lib/libgpu_aux.so
+vendor/lib/libgralloc_extra.so
+vendor/lib/libhwc2onfbadapter.so
+vendor/lib/libion_mtk.so
+vendor/lib/libion_ulit.so
+vendor/lib/libm4u.so
