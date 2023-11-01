@@ -64,6 +64,12 @@ function blob_fixup() {
         vendor/lib/libmtkcam_stdutils.so)
             "${PATCHELF}" --add-needed "libshim_mtkcam.so" "${2}"
             ;;
+        vendor/lib/libcam.client.so)
+            "${PATCHELF}" --add-needed "libshim_gui.so" "${2}"
+            ;;
+        vendor/lib/libMtkOmxVdecEx.so)
+            "{$PATCHELF}" --add-needed "libshim_gui.so" "${2}"
+            ;;
 }
 
 # Initialize the helper

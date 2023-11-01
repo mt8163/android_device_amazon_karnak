@@ -38,3 +38,20 @@ cc_library_shared {
         "libcutils",
     ],
 }
+
+cc_library_shared {
+    name: "libshim_gui",
+    srcs: [
+        "libshim_utils.cpp",
+        "libshim_gui.cpp",
+    ],
+
+    shared_libs: [
+        "libutilscallstack",
+        "libutils",
+        "libgui_vendor",
+        "libui",
+    ],
+
+    proprietary: true,
+}
