@@ -111,7 +111,8 @@ PRODUCT_PACKAGES += \
 # Libshims
 PRODUCT_PACKAGES += \
 	libshim_nvram \
-	libshim_keymaster
+	libshim_keymaster \
+	libshim_mtkcam.vendor
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
