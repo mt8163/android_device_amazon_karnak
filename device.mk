@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal large
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
