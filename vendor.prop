@@ -1,5 +1,6 @@
 # Media
 debug.stagefright.ccodec=0
+media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.mtk_key_manager_kb_path=1
 ro.mtk_key_manager_support=1
 ro.mtk_sec_video_path_support=1
