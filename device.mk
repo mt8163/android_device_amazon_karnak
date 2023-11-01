@@ -124,3 +124,6 @@ PRODUCT_PACKAGES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/amazon/karnak/karnak-vendor.mk)
+
+# Inherit The Mediatek Proprietary Files
+$(call inherit-product, vendor/amazon/mt8163/mt8163-vendor.mk)
