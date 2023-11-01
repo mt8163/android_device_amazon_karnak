@@ -50,6 +50,7 @@ TARGET_KERNEL_SOURCE := kernel/amazon/karnak
 TARGET_KERNEL_CONFIG := lineageos_karnak_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/linaro/linux-x86/aarch64/aarch64-linux-gnu/bin/aarch64-linux-gnu-
 TARGET_KERNEL_LLVM_BINUTILS := false
+TARGET_KERNEL_ADDITIONAL_FLAGS := HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 # Platform
 TARGET_BOARD_PLATFORM := mt8163
