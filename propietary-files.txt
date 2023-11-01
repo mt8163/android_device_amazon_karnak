@@ -14,3 +14,14 @@ vendor/lib/libhwc2onfbadapter.so
 vendor/lib/libion_mtk.so
 vendor/lib/libion_ulit.so
 vendor/lib/libm4u.so
+
+# NVRAM
+vendor/bin/nvram_daemon
+vendor/etc/init/nvram_daemon.rc
+vendor/lib/libfile_op.so
+vendor/lib/libcustom_nvram.so
+vendor/lib/libnvram_daemon_callback.so
+vendor/lib/libnvram_platform.so
+vendor/lib/libnvram.so
+vendor/lib/vendor.mediatek.hardware.nvram@1.0.so
+vendor/lib/vendor.mediatek.hardware.nvram@1.1.so
