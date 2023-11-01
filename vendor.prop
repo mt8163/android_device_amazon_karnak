@@ -1,3 +1,11 @@
+# DRM
+ro.mtk_key_manager_kb_path=1
+ro.mtk_key_manager_support=1
+ro.mtk_sec_video_path_support=1
+ro.vendor.mtk_in_house_tee_support=true
+ro.vendor.mtk_sec_video_path_support=1
+vendor.mtk.vdec.waitkeyframeforplay=1
+
 # Audio
 ro.mtk_audenh_support=1
 ro.mtk_audio_profiles=1
