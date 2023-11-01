@@ -268,3 +268,14 @@ vendor/lib/lib_uree_mtk_video_secure_al.so
 vendor/lib/libtz_uree.so
 vendor/lib/libplayready.so
 vendor/lib/liburee_meta_drmkeyinstall_v2.so
+
+# Thermal
+vendor/bin/hw/fireos.hardware.amazonthermal@1.0-service
+vendor/etc/.tp/thermal.conf
+vendor/etc/.tp/thermal.off.conf
+vendor/etc/.tp/thermal.policy.conf
+vendor/etc/init/fireos.hardware.amazonthermal@1.0-service.rc
+vendor/etc/init/init.thermal.rc
+vendor/etc/init/init.thermal_manager.rc
+vendor/lib/fireos.hardware.amazonthermal@1.0.so
+vendor/lib/hw/fireos.hardware.amazonthermal@1.0-impl.so
