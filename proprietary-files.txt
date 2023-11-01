@@ -33,3 +33,7 @@ vendor/lib/hw/keystore.mt8163.so
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
+
+# Gatekeeper
+vendor/lib/hw/gatekeeper.mt8163.so
+vendor/lib/hw/libSoftGatekeeper.so
