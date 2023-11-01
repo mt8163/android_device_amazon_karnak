@@ -20,6 +20,9 @@ $(call inherit-product-if-exists, vendor/vendor_gms/gms_full_tablet_wifionly.mk)
 # Android Go optimisations
 $(call inherit-product, device/amazon/karnak/go_opt.mk)
 
+# Dalvik
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
 PRODUCT_NAME := lineage_karnak
 PRODUCT_DEVICE := karnak
 PRODUCT_MANUFACTURER := amzn
