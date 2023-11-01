@@ -107,6 +107,10 @@ PRODUCT_PACKAGES += \
     fstab.mt8163 \
     fstab.mt8163_first_stage \
     ueventd.mt8163.rc
+    
+# Libshims
+PRODUCT_PACKAGES += \
+	libshim_nvram
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

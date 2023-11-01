@@ -54,6 +54,10 @@ if [ -z "${SRC}" ]; then
 fi
 
 function blob_fixup() {
+    case "$1" in
+        vendor/lib/libnvram.so)
+            "${PATCHELF}" --add-needed "libshim_nvram.so" "${2}"
+            ;;
 }
 
 # Initialize the helper
