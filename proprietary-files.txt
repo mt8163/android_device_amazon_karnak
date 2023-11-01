@@ -1,86 +1,50 @@
 # Unpinned blobs from karnak-user 9 PS7327.3336N 0026743736320 amz-p,release-keys
 
 # Audio
-vendor/lib/fireos.hardware.avsync@1.0.so
-system/lib/libavsyncdapter.so
-vendor/lib/libamazonlog.so
-system/lib/libaudiohwsync.so
-vendor/lib/fireos.hardware.localtime@1.0.so
 vendor/lib/fireos.hardware.audio@2.0.so
+vendor/bin/hw/fireos.hardware.audio@2.0-service
+vendor/etc/init/fireos.hardware.audio@2.0-service.rc
+vendor/lib/hw/fireos.hardware.audio@4.0-impl.so
+vendor/lib/hw/fireos.hardware.audiosignalprocessor@1.0-impl.so
 vendor/lib/fireos.hardware.audio@4.0.so
 vendor/lib/fireos.hardware.audiosignalprocessor@1.0.so
 vendor/lib/fireos.hardware.audiosignalprocessor@1.1.so
-vendor/lib/hw/fireos.hardware.audiosignalprocessor@1.0-impl.so
-vendor/lib/hw/audio.btle.default.so
+vendor/lib/fireos.hardware.avls@1.0.so
+vendor/lib/fireos.hardware.avsync@1.0.so
+vendor/lib/fireos.hardware.localtime@1.0.so
 vendor/lib/hw/audio.primary.mt8163.so
-vendor/lib/hw/fireos.hardware.audio@4.0-impl.so
-vendor/lib/hw/fireos.hardware.avsync@1.0-impl.so
-vendor/lib/libaudiocomponentengine_vendor.so
-vendor/lib/libblisrc32_vendor.so
-vendor/lib/libblisrc_vendor.so
-vendor/lib/libbwc.so
-vendor/lib/libmsbc_mtk.so
-vendor/lib/libmtk_drvb.so
-vendor/lib/libcommon_time_client_vendor.so
-vendor/lib/liblineartransform_vendor.so
-vendor/lib/libmtklimiter_vendor.so
-vendor/lib/libmtkshifter_vendor.so
-vendor/lib/libopuscodec.so
-vendor/lib/libalsautils.so
+vendor/lib/hw/audio.r_submix.mt8163.so
 vendor/lib/libasp.so
+vendor/lib/hw/audio.btle.default.so
+vendor/lib/hw/audio.voice_dsp.default.so
+vendor/lib/hw/audio_policy.stub.so
 vendor/lib/libaudiocompensationfilter_vendor.so
+vendor/lib/libaudiocomponentengine_vendor.so
+vendor/lib/libaudiodcrflt_vendor.so
 vendor/lib/libaudiosetting.so
 vendor/lib/libaudiotoolkit_vendor.so
 vendor/lib/libbessound_hd_mtk_vendor.so
-vendor/lib/libbluetooth_mtk_pure.so
-vendor/lib/libcustom_nvram.so
+vendor/lib/libblisrc32_vendor.so
+vendor/lib/libblisrc_vendor.so
 vendor/lib/libcvsd_mtk.so
-vendor/lib/libladder.so
+vendor/lib/libmsbc_mtk.so
+vendor/lib/libmtk_drvb.so
+vendor/lib/libmtklimiter_vendor.so
+vendor/lib/libmtkshifter_vendor.so
 vendor/lib/vendor.mediatek.hardware.power@2.0.so
-
-# Display
-vendor/lib/egl/libGLES_mali.so
-vendor/lib/hw/gralloc.mt8163.so
-vendor/lib/hw/hwcomposer.mt8163.so
-vendor/lib/hw/memtrack.mt8163.so
-vendor/lib/libbwc.so
-vendor/lib/libdpframework.so
-vendor/lib/libged.so
-vendor/lib/libgpu_aux.so
-vendor/lib/libgralloc_extra.so
-vendor/lib/libhwc2onfbadapter.so
-vendor/lib/libion_mtk.so
-vendor/lib/libion_ulit.so
-vendor/lib/libm4u.so
-
-# NVRAM
-vendor/bin/nvram_daemon
-vendor/etc/init/nvram_daemon.rc
-vendor/lib/libfile_op.so
-vendor/lib/libcustom_nvram.so
-vendor/lib/libnvram_daemon_callback.so
-vendor/lib/libnvram_platform.so
-vendor/lib/libnvram.so
-vendor/lib/vendor.mediatek.hardware.nvram@1.0.so
-vendor/lib/vendor.mediatek.hardware.nvram@1.1.so
-
-# Keymaster
-vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
-vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
-vendor/lib/hw/keystore.mt8163.so
-vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
-vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
-vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
-
-# Gatekeeper
-vendor/lib/hw/gatekeeper.mt8163.so
-vendor/lib/hw/libSoftGatekeeper.so
+vendor/lib/libaudio_param_parser-vnd.so
+vendor/lib/libaudiocustparam_vendor.so
+vendor/lib/libaudiofmtconv.so
+vendor/lib/libvoiceaudioutility.so
+vendor/lib/libaudioprimarydevicehalifclient.so
+vendor/lib/libspeech_enh_lib.so
+vendor/lib/libcjson.so
 
 # Audio (FX modules)
 vendor/lib/soundfx/libdynproc.so
 vendor/lib/soundfx/libswdap.so
 
-# Mediatek Audio Configurations
+# Audio configs
 vendor/etc/audio_param/AudioParamOptions.xml
 vendor/etc/audio_param/BtInfo_AudioParam.xml
 vendor/etc/audio_param/BtInfo_ParamUnitDesc.xml
@@ -175,15 +139,26 @@ vendor/etc/audio_param/VolumeGainMap_AudioParam.xml
 vendor/etc/audio_param/VolumeGainMap_ParamUnitDesc.xml
 vendor/etc/audio_param/Volume_AudioParam.xml
 vendor/etc/audio_param/Volume_ParamUnitDesc.xml
+
+# NVRAM
+vendor/bin/nvram_daemon
+vendor/etc/init/nvram_daemon.rc
+vendor/lib/libfile_op.so
+vendor/lib/libcustom_nvram.so
+vendor/lib/libnvram_daemon_callback.so
+vendor/lib/libnvram_platform.so
+vendor/lib/libnvram.so
+vendor/lib/vendor.mediatek.hardware.nvram@1.0.so
+vendor/lib/vendor.mediatek.hardware.nvram@1.1.so
+
+# Audio Algothrims
 vendor/etc/audio-algorithms/AFE.cfg
 vendor/etc/audio-algorithms/EQ_2048.cfg
 vendor/etc/audio-algorithms/MBCL.cfg
 vendor/etc/audio-algorithms/coefs_FilterBank.cfg
 vendor/etc/audio-algorithms/coefs_FilterBank_160.cfg
 
-# Wi-Fi
-vendor/lib/WifiMetrics.so
-vendor/lib/fireos.hardware.connectivity@1.0.so
+# Firmware Files
 vendor/firmware/ROMv2_lm_patch_1_0_hdr.bin
 vendor/firmware/ROMv2_lm_patch_1_1_hdr.bin
 vendor/firmware/SMicBin_rt5518_mode11.dat
@@ -196,17 +171,59 @@ vendor/firmware/SMicBin_rt5518_mode23.dat
 vendor/firmware/SMicBin_rt5518_mode24.dat
 vendor/firmware/WIFI_RAM_CODE_8163
 vendor/firmware/WMT_SOC.cfg
-vendor/lib/fireos.hardware.connectivity.networkpower@1.0.so
+vendor/firmware/md32_d.bin
+vendor/firmware/md32_p.bin
 
-# Bluetooth
-vendor/lib/libbluetoothem_mtk.so
-vendor/lib/libbluetooth_hw_test.so
-vendor/lib/libbluetooth_mtk.so
-vendor/lib/libbluetooth_mtk_pure.so
-vendor/lib/libbluetooth_relayer.so
-vendor/lib/libbt-vendor.so
-vendor/etc/init/btmac.rc
-vendor/bin/btmac
+
+
+# Display
+vendor/lib/egl/egl.cfg
+vendor/lib/egl/libGLES_mali.so
+vendor/lib/hw/gralloc.mt8163.so
+vendor/lib/hw/hwcomposer.mt8163.so
+vendor/lib/hw/memtrack.mt8163.so
+vendor/lib/libbwc.so
+vendor/lib/libdpframework.so
+vendor/lib/libged.so
+vendor/lib/libgpu_aux.so
+vendor/lib/libgralloc_extra.so
+vendor/lib/libhwc2onfbadapter.so
+vendor/lib/libion_mtk.so
+vendor/lib/libion_ulit.so
+vendor/lib/libm4u.so
+
+# DRM
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
+vendor/lib/mediadrm/libplayreadydrmplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/liboemcrypto.so
+vendor/lib/libplayready.so
+vendor/lib/libtz_uree.so
+vendor/lib/libwvhidl.so
+vendor/lib/lib_uree_mtk_modular_drm.so
+vendor/lib/lib_uree_mtk_video_secure_al.so
+vendor/lib/liburee_meta_drmkeyinstall_v2.so
+
+# Gatekeeper
+vendor/lib/hw/gatekeeper.mt8163.so
+vendor/lib/hw/libSoftGatekeeper.so
+
+# Keymaster
+vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
+vendor/lib/hw/keystore.mt8163.so
+vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
+vendor/lib/libkeymaster3device.so
+vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
+vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
+vendor/bin/hw/vendor.mediatek.hardware.keymanage@1.0-service
+vendor/etc/init/vendor.mediatek.hardware.keymanage@1.0-service.rc
+vendor/lib/hw/vendor.mediatek.hardware.keymanage@1.0-impl.so
+vendor/lib/vendor.mediatek.hardware.keymanage@1.0.so
+
+# Local time
+vendor/lib/hw/local_time.default.so
+vendor/lib/libcommon_time_client_vendor.so
 
 # Media
 vendor/lib/libGdmaScalerPipe.so
@@ -219,56 +236,195 @@ vendor/lib/libhevce_sb.ca7.android.so
 vendor/lib/libjpeg-alpha_vendor.so
 vendor/lib/libmhalImageCodec.so
 vendor/lib/libmp4enc_sa.ca7.so
+vendor/lib/libstagefright_soft_ac4dec.so
+vendor/lib/libstagefright_soft_ddpdec.so
+vendor/lib/libstagefrightdolby.so
 vendor/lib/libstagefrighthw.so
 vendor/lib/libvc1dec_sa.ca7.so
 vendor/lib/libvcodec_oal.so
 vendor/lib/libvcodec_utility.so
 vendor/lib/libvcodecdrv.so
 vendor/lib/libvp8enc_sa.ca7.so
+vendor/lib/libvp8dec_sa.ca7.so
+vendor/lib/libvp9dec_sa.ca7.so
 
-# DRM stack
+# Media (Dolby)
+lib/vendor.dolby.hardware.dms@1.0.so
+vendor/bin/hw/vendor.dolby.hardware.dms@1.0-service
+vendor/etc/dolby/dax-default.xml
+vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc
+vendor/lib/libdapparamstorage.so
+vendor/lib/libdlbdsservice.so
+vendor/lib/vendor.dolby.hardware.dms@1.0-impl.so
+vendor/lib/vendor.dolby.hardware.dms@1.0.so
+
+# Sensors
+vendor/lib/libksensor.so
+
+# Wifi
+vendor/bin/wmt_concurrency
+vendor/bin/wmt_fdb
+vendor/bin/wmt_launcher
+vendor/bin/wmt_loader
+vendor/bin/wmt_loopback
+
+# Amazon DRM Hals
+vendor/lib/hw/amzn_dha.mt8163.so
+vendor/lib/hw/amzn_drmprov.mt8163.so
 vendor/bin/amzn_dha_hmac
 vendor/bin/amzn_dha_tool
 vendor/bin/amzn_drmprov_check
 vendor/bin/amzn_drmprov_tool
-vendor/lib/liboemcrypto.so
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine
-vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
-vendor/lib/libwvhidl.so
-vendor/lib/mediadrm/libplayreadydrmplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
+vendor/etc/init/amzn_drmprov_check.rc
 vendor/bin/hw/fireos.hardware.fireosdha@1.0-service
-vendor/etc/init/fireos.hardware.fireosdha@1.0-service.rc
-vendor/etc/init/kisd.rc
-vendor/bin/kisd
-vendor/bin/pr_device_cert_id
-vendor/etc/init/pr_device_cert_id.rc
-vendor/etc/init/rpmb_svc.rc
-vendor/etc/init/securetime.rc
-vendor/lib/hw/amzn_dha.mt8163.so
-vendor/lib/hw/amzn_drmprov.mt8163.so
-vendor/lib/liboemcrypto.so
+vendor/lib/hw/fireos.hardware.fireosdha@1.0-impl.so
+vendor/lib/fireos.hardware.fireosdha@1.0.so
+
+
+#Bluetooth Hals
+vendor/bin/btmac
+vendor/lib/libbluetooth_hw_test.so
+vendor/lib/libbluetooth_relayer.so
+vendor/lib/libbluetoothem_mtk.so
+vendor/lib/libbluetooth_mtk_pure.so
+vendor/lib/libbluetooth_relayer.so
+vendor/lib/libbt-vendor.so
+vendor/etc/init/btmac.rc
+vendor/lib/fireos.hardware.idme@1.0.so
+vendor/lib/libbluetooth_mtk.so
+vendor/lib/libbt-vendor.so
+
+# Camera
+vendor/lib/hw/vendor.mediatek.hardware.camera.ccap@1.0-impl.so
+vendor/lib/vendor.mediatek.hardware.camera.ccap@1.0.so
+vendor/lib/vendor.mediatek.hardware.camera.device@1.1.so
+
+vendor/bin/hw/camerahalserver
+vendor/lib/lib3a.log.so
+vendor/lib/lib3am.so
+vendor/lib/libJpgEncPipe.so
+vendor/lib/libcam.camadapter.so
+vendor/lib/libcam.campipe.so
+vendor/lib/libcam.camshot.so
+vendor/lib/libcam.client.so
+vendor/lib/libcam.device1.so
+vendor/lib/libcam.exif.so
+vendor/lib/libcam.exif.v3.so
+vendor/lib/libcam.hal3a.v3.dng.so
+vendor/lib/libcam.hal3a.v3.so
+vendor/lib/libcam.halsensor.so
+vendor/lib/libcam.iopipe.so
+vendor/lib/libcam.iopipe_FrmB.so
+vendor/lib/libcam.metadataprovider.so
+vendor/lib/libcam.paramsmgr.so
+vendor/lib/libcam.utils.sensorlistener.so
+vendor/lib/libcam.utils.so
+vendor/lib/libcam1_utils.so
+vendor/lib/libcam3_hwnode.so
+vendor/lib/libcam3_hwpipeline.so
+vendor/lib/libcam3_pipeline.so
+vendor/lib/libcam3_utils.so
+vendor/lib/libcam_hwutils.so
+vendor/lib/libcam_mmp.so
+vendor/lib/libcam_platform.so
+vendor/lib/libcam_utils.so
+vendor/lib/libcamalgo.so
+vendor/lib/libcamdrv.so
+vendor/lib/libcamdrv_FrmB.so
+vendor/lib/libcameracustom.so
+vendor/lib/libmtkcam_debugutils.so
+vendor/lib/libmtkcam_device1.so
+vendor/lib/libmtkcam_device3.so
+vendor/lib/libmtkcam_device3_app.so
+vendor/lib/libmtkcam_fwkutils.so
+vendor/lib/libmtkcam_grallocutils.so
+vendor/lib/libmtkcam_imgbuf.so
+vendor/lib/libmtkcam_metadata.so
+vendor/lib/libmtkcam_stdutils.so
+vendor/lib/libmtkcam_sysutils.so
+vendor/lib/libmtkcam_ulog.so
+vendor/lib/libimageio.so
+vendor/lib/libimageio_FrmB.so
+vendor/lib/libimageio_plat_drv.so
+vendor/lib/libimageio_plat_drv_FrmB.so
+vendor/lib/libispfeaturem.so
+vendor/lib/libfeatureio.so
+vendor/lib/libfeatureiodrv.so
 vendor/lib/libfpspolicy.so
-vendor/lib/lib_uree_mtk_modular_drm.so
-vendor/lib/lib_uree_mtk_video_secure_al.so
-vendor/lib/libtz_uree.so
-vendor/lib/libplayready.so
-vendor/lib/liburee_meta_drmkeyinstall_v2.so
+vendor/lib/libhdrproc.so
+
+# Power
+vendor/etc/init/vendor.mediatek.hardware.power@2.0-init.rc
+vendor/etc/init/vendor.mediatek.hardware.power@2.0-service.rc
+vendor/bin/hw/vendor.mediatek.hardware.power@2.0-service
+vendor/lib/hw/vendor.mediatek.hardware.power@2.0-impl.so
+vendor/lib/libpowerhal.so
+vendor/lib/libpowerhalwrap_vendor.so
+vendor/etc/power_whitelist_cfg.xml
+vendor/etc/powerscntbl.cfg
+
+# IDME
+vendor/bin/idme
+vendor/bin/hw/fireos.hardware.idme@1.0-service
+vendor/etc/init/fireos.hardware.idme@1.0-service.rc
+vendor/lib/hw/fireos.hardware.idme@1.0-impl.so
+
+# Connectivity
+vendor/etc/init/init.wlan_drv.rc
+vendor/etc/init/init.wmt_drv.rc
+vendor/etc/init/init_connectivity.rc
+vendor/bin/hw/fireos.hardware.connectivity.networkpower@1.0-service
+vendor/etc/init/fireos.hardware.connectivity.networkpower@1.0-service.rc
+vendor/lib/fireos.hardware.connectivity.networkpower@1.0.so
 
 # Thermal
-vendor/bin/hw/fireos.hardware.amazonthermal@1.0-service
+vendor/etc/.tp/.ht120.mtc
 vendor/etc/.tp/thermal.conf
 vendor/etc/.tp/thermal.off.conf
 vendor/etc/.tp/thermal.policy.conf
+vendor/etc/init/init.bt_drv.rc
+vendor/bin/hw/fireos.hardware.amazonthermal@1.0-service
 vendor/etc/init/fireos.hardware.amazonthermal@1.0-service.rc
-vendor/etc/init/init.thermal.rc
-vendor/etc/init/init.thermal_manager.rc
-vendor/lib/fireos.hardware.amazonthermal@1.0.so
 vendor/lib/hw/fireos.hardware.amazonthermal@1.0-impl.so
+vendor/lib/fireos.hardware.amazonthermal@1.0.so
 
-#IDME
-vendor/bin/hw/fireos.hardware.idme@1.0-service
-vendor/bin/idme
-vendor/etc/init/fireos.hardware.idme@1.0-service.rc
-vendor/lib/hw/fireos.hardware.idme@1.0-impl.so
+# Miscellaneous
+vendor/lib/vendor.mediatek.hardware.atci@1.0.so
+vendor/lib/vendor.mediatek.hardware.dfps@1.0.so
+vendor/lib/vendor.mediatek.hardware.lbs@1.0.so
+
+vendor/bin/gsm0710muxd
+vendor/bin/iwpriv
+vendor/bin/kisd
+vendor/bin/mtkcam-debug
+vendor/bin/netdc
+vendor/bin/pr_device_cert_id
+vendor/bin/rpmb_svc
+vendor/bin/securetime
+vendor/bin/wipe_fos_flags
+vendor/data/misc/ProjectConfig.mk
+
+vendor/etc/init/camerahalserver.rc
+vendor/etc/init/gsm0710muxd.rc
+vendor/etc/init/init.wipe_fos_flags.rc
+vendor/etc/init/kisd.rc
+vendor/etc/init/pr_device_cert_id.rc
+vendor/etc/init/rpmb_svc.rc
+vendor/etc/init/securetime.rc
+vendor/lib/libOpenCL.so
+vendor/lib/libacdk.so
+vendor/lib/libccap.so
+vendor/lib/libccci_util.so
+vendor/lib/libhwm.so
+vendor/lib/libkmsetkey.so
+vendor/lib/liblineartransform_vendor.so
+vendor/lib/libmmprofile.so
+vendor/lib/libmtcloader.so
+vendor/lib/libmtkhardware_legacy.so
+vendor/lib/libmtknetutils.so
+vendor/lib/libmtksysutils.so
+vendor/lib/libsensorndkbridge.so
+vendor/lib/libsysenv.so
+
+
 
