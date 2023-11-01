@@ -93,5 +93,9 @@ BOARD_AVB_ENABLE := false
 # VNDK
 BOARD_VNDK_VERSION := current
 
+# BT
+BOARD_HAS_BLUETOOTH := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
 # Inherit the proprietary files
 include vendor/amazon/karnak/BoardConfigVendor.mk

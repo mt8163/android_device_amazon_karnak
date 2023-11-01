@@ -207,3 +207,15 @@ vendor/firmware/SMicBin_rt5518_mode24.dat
 vendor/firmware/WIFI_RAM_CODE_8163
 vendor/firmware/WMT_SOC.cfg
 vendor/lib/fireos.hardware.connectivity.networkpower@1.0.so
+
+# Bluetooth
+vendor/lib/fireos.hardware.idme@1.0.so
+vendor/lib/libbluetoothem_mtk.so
+vendor/lib/libbluetooth_hw_test.so
+vendor/lib/libbluetooth_mtk.so
+vendor/lib/libbluetooth_mtk_pure.so
+vendor/lib/libbluetooth_relayer.so
+vendor/lib/libbt-vendor.so
+vendor/etc/init/btmac.rc
+vendor/bin/btmac
+

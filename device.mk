@@ -85,7 +85,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/amazon
-    
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl-mediatek \
+    android.hardware.bluetooth@1.0-service-mediatek \
+    android.hardware.bluetooth.a2dp@1.0.vendor
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
