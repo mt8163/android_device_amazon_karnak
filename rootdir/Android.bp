@@ -1,0 +1,34 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "init.mt8163.rc",
+    src: "etc/init.mt8163.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mt8163.usb.rc",
+    src: "etc/init.mt8163.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "fstab.mt8163",
+    src: "etc/fstab.mt8163",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.mt8163.rc",
+    stem: "ueventd.rc",
+    src: "etc/ueventd.mt8163.rc",
+    proprietary: true,
+
+}
+

@@ -1,0 +1,156 @@
+#change partition permission
+/dev/block/platform/soc/11230000.mmc/by-name/boot      0640    root    system
+/dev/block/platform/soc/11230000.mmc/by-name/recovery  0640    root    system
+/dev/block/platform/soc/11230000.mmc/by-name/proinfo   0660    root    system
+/dev/block/platform/soc/11230000.mmc/by-name/nvram     0660    root    system
+/dev/block/platform/soc/11230000.mmc/by-name/MISC      0660    root    system
+/dev/block/platform/soc/11230000.mmc/by-name/logo      0660    root    system
+
+# Connectivity
+/dev/stpwmt               0660   system     system
+/dev/wmtdetect            0660   system     system
+
+# BT
+/dev/stpbt                0660   bluetooth  bluetooth
+
+# GPS
+/dev/stpgps               0660   gps        gps
+/dev/gps                  0660   gps        system
+
+# ANT
+/dev/stpant               0660   system     system
+
+# WIFI
+/dev/wmtWifi              0660   wifi      wifi
+
+# FMRadio
+/dev/fm                   0660   media      media
+
+# NFC
+/dev/msr3110              0666   root       root
+/dev/mt6605               0660   nfc        radio
+
+#ION
+/dev/ion                  0666   root       root
+
+# MTK BTIF driver
+/dev/btif                 0600   system     system
+
+# MTK in-house TEE
+/dev/trustzone            0660   system     drmrpc
+
+# RPMB
+/dev/block/mmcblk0rpmb    0660   root       system
+
+# GPT timer
+/dev/mt_xgpt              0660   system     audio
+
+#/dev/ttyMT2 for Connectivity BT/FM/GPS usage
+/dev/ttyMT2               0660   system     system
+
+# BT relayer mode used VCOM
+/dev/ttyGS0               0660   system     system
+/dev/ttyGS1               0660   system     system
+/dev/ttyGS2               0660   bluetooth  bluetooth
+/dev/ttyGS3               0660   system     radio
+
+# Camera
+/dev/GAF001AF             0660   system     camera
+/dev/AD5820AF             0660   system     camera
+/dev/DW9714AF             0660   system     camera
+/dev/BU64745GWZAF         0660   system     camera
+/dev/FM50AF               0660   system     camera
+/dev/DW9718AF             0660   system     camera
+/dev/CAM_CAL_DRV          0660   system     camera
+/dev/camera-sysram        0660   system     camera
+/dev/camera-isp           0660   system     camera
+/dev/camera-fdvt          0660   system     camera
+/dev/camera-pipemgr       0660   system     camera
+/dev/kd_camera_hw         0660   system     camera
+/dev/kd_camera_flashlight 0660   system     camera
+/dev/kd_camera_hw_bus2    0660   system     camera
+
+# ION driver
+/dev/ion                  0666   root       root
+
+# OTG Test
+/dev/mt_otg_test          0660   root       radio
+
+# VCodec
+/dev/Vcodec               0666   media      system
+
+# UIBC
+/dev/uibc                 0660   system     media
+
+# BT SCO CVSD, for MT6572 and MT6582 CVSD codec on AP
+/dev/ebc                  0660   media      media
+
+# SMI
+/dev/MTK_SMI              0666   media      media
+
+# MDP SYNC
+/dev/mdp_sync             0660   system     system
+
+# device info /proc interface
+/dev/devmap               0444   root       media
+
+# Graphics
+/dev/mali0                0666   root       root
+/dev/graphics/fb0         0660   system     graphics
+/dev/mtk_disp_mgr         0660   system     graphics
+/dev/mtkfb_vsync          0660   system     graphics
+/dev/sw_sync              0660   system     graphics
+
+# set ptmx group to non-root
+/dev/ptmx                 0666   root       radio
+
+# CMDQ
+/dev/mtk_cmdq             0640   system     system
+
+/sys/kernel/debug/ged/hal* fps_upper_bound  0660   system system
+/sys/kernel/debug/ged/hal* vsync_offset_level     0660   system system
+/sys/kernel/debug/ged/hal* event_notify            0660   system system
+/sys/kernel/debug/ged/hal* custom_upbound_gpu_freq   0660   system system
+/sys/kernel/debug/ged/hal* custom_boost_gpu_freq     0660   system system
+
+# Battery Call State
+/sys/devices/platform/battery* Charging_CallState 0660 radio radio 
+
+# Thermal
+/sys/devices/virtual/thermal/thermal_zone* mode 0660  system system
+/sys/devices/virtual/thermal/thermal_zone* trips 0660  system system
+/sys/devices/virtual/thermal/thermal_zone* policy 0660  system system
+/sys/devices/virtual/thermal/thermal_zone* polling 0660  system system
+/sys/devices/virtual/thermal/thermal_zone* cdevs 0660  system system
+/sys/devices/virtual/thermal/cooling_device* cur_state 0660 system system
+/sys/devices/virtual/thermal/cooling_device* levels 0660 system system
+
+/sys/devices/virtual/thermal/thermal_zone* trip_point_0_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_0_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_1_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_1_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_2_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_2_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_3_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_3_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_4_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_4_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_5_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_5_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_6_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_6_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_7_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_7_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_8_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_8_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_9_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_9_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_10_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_10_hyst 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_11_temp 0660 system system
+/sys/devices/virtual/thermal/thermal_zone* trip_point_11_hyst 0660 system system
+
+# USB role switch
+/sys/class/dual_role_usb/*	data_role	0660	system	system
+/sys/class/dual_role_usb/*	power_role	0660	system	system
+/sys/class/dual_role_usb/*	mode		0660	system	system
