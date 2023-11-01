@@ -51,5 +51,8 @@ TARGET_KERNEL_LLVM_BINUTILS := false
 # Platform
 TARGET_BOARD_PLATFORM := mt8163
 
+# Verified Boot
+BOARD_AVB_ENABLE := false
+
 # Inherit the proprietary files
 include vendor/amazon/karnak/BoardConfigVendor.mk
