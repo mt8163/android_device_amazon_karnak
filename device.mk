@@ -45,6 +45,10 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+    
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service.basic
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/amazon/karnak/karnak-vendor.mk)
