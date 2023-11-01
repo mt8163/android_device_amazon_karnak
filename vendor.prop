@@ -35,6 +35,7 @@ debug.sf.earlyGl.app.duration=20000000
 debug.sf.hwc.min.duration=17000000
 ro.vendor.mtk_pq_color_mode=1
 ro.opengles.version=196609
+service.sf.prime_shader_cache=0
 
 # Keymaster
 ro.crypto.volume.filenames_mode=aes-256-cts
