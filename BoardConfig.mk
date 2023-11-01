@@ -45,6 +45,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/amazon/karnak
 TARGET_KERNEL_CONFIG := lineageos_karnak_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/linaro/linux-x86/aarch64/aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
 # Platform
 TARGET_BOARD_PLATFORM := mt8163
