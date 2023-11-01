@@ -8,6 +8,9 @@
 PRODUCT_AAPT_CONFIG := normal large
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Characteristics
+PRODUCT_CHARACTERISTICS := tablet
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
