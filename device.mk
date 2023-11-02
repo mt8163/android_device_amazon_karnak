@@ -221,6 +221,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service-mediatek \
     android.hardware.bluetooth.a2dp@1.0.vendor
 
+# Libion
+PRODUCT_PACKAGES += \
+    libion
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
