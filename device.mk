@@ -186,7 +186,12 @@ PRODUCT_PACKAGES += \
     fstab.mt8163 \
     fstab.mt8163_first_stage \
     ueventd.mt8163.rc
-    
+
+# Thermal
+PRODUCT_PACKAGES +=\
+    thermal.mt8163 \
+    thermal_manager
+
 # Libshims
 PRODUCT_PACKAGES += \
 	libshim_nvram \
