@@ -62,6 +62,11 @@ PRODUCT_PACKAGES += \
 # Bootanimation
 TARGET_BOOTANIMATION_HALF_RES := true
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.device@1.0-impl \
+    camera.device@3.2-impl
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
