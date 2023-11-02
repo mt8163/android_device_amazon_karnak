@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/stub_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/stub_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration.xml
 
+# Display
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/display/display_id_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_0.xml
+
 # Binder
 PRODUCT_PACKAGES += \
     android.hidl.allocator@1.0.vendor \
