@@ -187,6 +187,13 @@ PRODUCT_PACKAGES += \
     fstab.mt8163_first_stage \
     ueventd.mt8163.rc
 
+# Sensor
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl-mediatek \
+    android.hardware.sensors@1.0-service-mediatek \
+    sensors.mt8163 \
+    libsensorndkbridge
+
 # Thermal
 PRODUCT_PACKAGES +=\
     thermal.mt8163 \
