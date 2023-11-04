@@ -95,6 +95,12 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
     libdrmclearkeyplugin \
     libmockdrmcryptoplugin
+
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
+    libprotobuf-cpp-lite
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl-mediatek \
