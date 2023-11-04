@@ -44,6 +44,14 @@ vendor/lib/libcjson.so
 vendor/lib/soundfx/libdynproc.so
 vendor/lib/soundfx/libswdap.so
 
+# Kernel Modules
+vendor/lib/modules/perfinfo.ko
+vendor/lib/modules/wlan_drv_gen2.ko
+vendor/lib/modules/bt_drv.ko
+vendor/lib/modules/hid_ftv_bleremote.ko
+vendor/lib/modules/wmt_drv.ko
+vendor/lib/modules/wmt_chrdev_wifi.ko
+
 # Audio configs
 vendor/etc/audio_param/AudioParamOptions.xml
 vendor/etc/audio_param/BtInfo_AudioParam.xml
