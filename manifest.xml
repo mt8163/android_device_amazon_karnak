@@ -210,6 +210,16 @@
         <fqname>@1.0::IIdme/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>fireos.hardware.avsync</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAVSyncBridgeFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAVSyncBridgeFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>fireos.hardware.audiosignalprocessor</name>
         <transport>hwbinder</transport>
         <version>1.0</version>

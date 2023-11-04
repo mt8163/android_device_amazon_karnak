@@ -321,4 +321,13 @@
             <instance>default</instance>
         </interface>
 </hal>
+<hal format="hidl" optional="true">
+        <name>fireos.hardware.avsync</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAVSyncBridgeFactory</name>
+            <instance>default</instance>
+        </interface>
+</hal>
 </compatibility-matrix>
