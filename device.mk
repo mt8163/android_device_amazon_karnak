@@ -241,6 +241,10 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
 # Wi-Fi
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
+
+# Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     libwpa_client \
