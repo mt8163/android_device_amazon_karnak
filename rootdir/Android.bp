@@ -24,11 +24,4 @@ prebuilt_etc {
     vendor: true,
 }
 
-prebuilt_etc {
-    name: "ueventd.mt8163.rc",
-    stem: "ueventd.rc",
-    src: "etc/ueventd.mt8163.rc",
-    proprietary: true,
-
-}
 
