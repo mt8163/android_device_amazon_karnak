@@ -70,6 +70,10 @@ function blob_fixup() {
         vendor/lib/libMtkOmxVdecEx.so)
             "{$PATCHELF}" --add-needed "libshim_gui.so" "${2}"
             ;;
+        vendor/lib/hw/fireos.hardware.audio@4.0-impl.so)
+            "${PATCHELF}" --replace-needed "android.hardware.audio.common@4.0-util.so" "android.hardware.audio.common@4.0-util_v28.so" "${2}"
+            ;;
+        esac
 }
 
 # Initialize the helper
