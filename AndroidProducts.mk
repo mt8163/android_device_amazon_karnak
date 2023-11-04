@@ -8,6 +8,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_karnak.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineageos_karnak-user \
-    lineageos_karnak-userdebug \
-    lineageos_karnak-eng
+    lineage_karnak-user \
+    lineage_karnak-userdebug \
+    lineage_karnak-eng
