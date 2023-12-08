@@ -27,6 +27,7 @@ dalvik.vm.madvise-random=true
 dalvik.vm.minidebuginfo=false
 
 # Display
+ro.hardware.egl=mali
 debug.sf.disable_backpressure=1
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_transaction_tracing=false
