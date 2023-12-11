@@ -99,15 +99,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.4.vendor \
-    android.hardware.drm-service.clearkey \
-    libdrmclearkeyplugin \
-    libmockdrmcryptoplugin
-
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full \
-    libprotobuf-cpp-lite
+    android.hardware.drm@1.1.vendor \
+    android.hardware.drm@1.4-service.clearkey \
+    libmockdrmcryptoplugin \
+    libdrmclearkeyplugin
 
 # Lights
 PRODUCT_PACKAGES += \
