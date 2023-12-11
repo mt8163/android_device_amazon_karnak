@@ -5,7 +5,7 @@
 
 /dev/block/platform/soc/11230000.mmc/by-name/system     /system      ext4   ro                                                wait,first_stage_mount,readahead_size_kb=128
 /dev/block/platform/soc/11230000.mmc/by-name/vendor     /vendor      ext4   ro                                                wait,first_stage_mount,readahead_size_kb=128
-/dev/block/platform/soc/11230000.mmc/by-name/userdata   /data        ext4   noatime,nosuid,nodev,noauto_da_alloc,errors=remount-ro      wait,check,formattable,latemount,readahead_size_kb=128,fileencryption=aes-256-xts
+/dev/block/platform/soc/11230000.mmc/by-name/userdata   /data        ext4   noatime,nosuid,nodev,noauto_da_alloc,errors=remount-ro      wait,check,formattable,latemount,readahead_size_kb=128
 /dev/block/platform/soc/11230000.mmc/by-name/cache      /cache       ext4   noatime,nosuid,nodev,noauto_da_alloc      wait,check,formattable
 
 /devices/platform/soc/11240000.mmc* auto vfat defaults voldmanaged=sdcard1:auto
