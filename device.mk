@@ -244,7 +244,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic
+    android.hardware.usb-service-mediatek
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
