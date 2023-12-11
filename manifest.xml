@@ -267,8 +267,9 @@
             <name>IDms</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IDms/default</fqname>
     </hal>
-        <hal format="hidl">
+    <hal format="hidl">
         <name>fireos.hardware.fireosdha</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
