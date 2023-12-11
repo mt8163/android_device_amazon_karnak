@@ -12,7 +12,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/amazon/karnak/device.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
+$(call inherit-product-if-exists, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
 # Inherit GApps
 $(call inherit-product-if-exists, vendor/vendor_gms/gms_full_tablet_wifionly.mk)
