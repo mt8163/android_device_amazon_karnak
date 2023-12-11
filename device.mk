@@ -262,6 +262,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     EmergencyInfo
 
+# OMX
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-service \
+    libstagefright_omx.vendor
+
 # VNDK Libraries
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so \
