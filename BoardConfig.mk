@@ -134,3 +134,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 # Inherit the proprietary files
 include vendor/amazon/karnak/BoardConfigVendor.mk
 include vendor/amazon/mt8163/BoardConfigVendor.mk
+include device/mediatek/sepolicy_vndr/SEPolicy.mk
