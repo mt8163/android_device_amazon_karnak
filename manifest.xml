@@ -280,6 +280,26 @@
         </interface>
         <fqname>@1.0::IAmazonThermal/default</fqname>
 	</hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.keymaster_attestation</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IKeymasterDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IKeymasterDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.keymanage</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IKeymanage</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IKeymanage/default</fqname>
+    </hal>
     <sepolicy>
         <version>34.0</version>
     </sepolicy>

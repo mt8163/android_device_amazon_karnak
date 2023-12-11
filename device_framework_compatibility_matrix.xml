@@ -330,4 +330,22 @@
             <instance>default</instance>
         </interface>
 </hal>
+<hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.keymaster_attestation</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IKeymasterDevice</name>
+            <instance>default</instance>
+        </interface>
+</hal>
+<hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.keymanage</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IKeymanage</name>
+            <instance>default</instance>
+        </interface>
+</hal>
 </compatibility-matrix>
