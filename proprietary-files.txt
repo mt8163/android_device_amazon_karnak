@@ -258,7 +258,7 @@ vendor/lib/vendor.dolby.hardware.dms@1.0-impl.so
 vendor/lib/vendor.dolby.hardware.dms@1.0.so
 
 # Sensors
-vendor/lib/libksensor.so
+-vendor/lib/libksensor.so
 
 # Wifi
 vendor/bin/wmt_concurrency
