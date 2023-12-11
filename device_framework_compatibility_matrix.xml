@@ -290,7 +290,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>fireos.hardware.idme</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <interface>
         <name>IIdme</name>
         <instance>default</instance>
@@ -315,7 +315,7 @@
 <hal format="hidl" optional="true">
         <name>fireos.hardware.amazonthermal</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IAmazonThermal</name>
             <instance>default</instance>
