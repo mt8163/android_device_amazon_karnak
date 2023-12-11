@@ -200,12 +200,12 @@
 	    <hal format="hidl">
         <name>fireos.hardware.idme</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IIdme</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.0::IIdme/default</fqname>
+        <fqname>@1.1::IIdme/default</fqname>
     </hal>
     <hal format="hidl">
         <name>fireos.hardware.avsync</name>
@@ -259,7 +259,7 @@
         <fqname>@1.2::IPower/default</fqname>
         <fqname>@2.0::IPower/default</fqname>
     </hal>
-        <hal format="hidl">
+    <hal format="hidl">
         <name>vendor.dolby.hardware.dms</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -281,12 +281,12 @@
     <hal format="hidl">
         <name>fireos.hardware.amazonthermal</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IAmazonThermal</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.0::IAmazonThermal/default</fqname>
+        <fqname>@1.1::IAmazonThermal/default</fqname>
 	</hal>
     <sepolicy>
         <version>34.0</version>
