@@ -81,6 +81,12 @@ function blob_fixup() {
         vendor/lib/mediadrm/libwvdrmengine.so)
             "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v28.so" "${2}"
             ;;
+        vendor/lib/vendor/bin/amzn_drmprov_check)
+            "${PATCHELF}" --add-needed "libamazonlog.so" "${2}"
+            ;;
+        vendor/lib/hw/audio.btle.default.so)
+            "${PATCHELF}" --add-needed "libamazonlog.so" "${2}"
+            ;;
     esac
 }
 
