@@ -13,11 +13,9 @@ vendor/lib/fireos.hardware.avls@1.0.so
 vendor/lib/fireos.hardware.avsync@1.0.so
 vendor/lib/fireos.hardware.localtime@1.0.so
 vendor/lib/hw/audio.primary.mt8163.so
-vendor/lib/hw/audio.r_submix.mt8163.so
 vendor/lib/libasp.so
 vendor/lib/hw/audio.btle.default.so
 vendor/lib/hw/audio.voice_dsp.default.so
-vendor/lib/hw/audio_policy.stub.so
 vendor/lib/libaudiocompensationfilter_vendor.so
 vendor/lib/libaudiocomponentengine_vendor.so
 vendor/lib/libaudiodcrflt_vendor.so
@@ -41,7 +39,6 @@ vendor/lib/libspeech_enh_lib.so
 vendor/lib/libcjson.so
 
 # Audio (FX modules)
-vendor/lib/soundfx/libdynproc.so
 vendor/lib/soundfx/libswdap.so
 
 # Kernel Modules
@@ -195,7 +192,6 @@ vendor/lib/libdpframework.so
 vendor/lib/libged.so
 vendor/lib/libgpu_aux.so
 vendor/lib/libgralloc_extra.so
-vendor/lib/libhwc2onfbadapter.so
 vendor/lib/libion_mtk.so
 vendor/lib/libion_ulit.so
 vendor/lib/libm4u.so
@@ -221,7 +217,6 @@ vendor/lib/hw/libSoftGatekeeper.so
 vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
 vendor/lib/hw/keystore.mt8163.so
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
-vendor/lib/libkeymaster3device.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 vendor/bin/hw/vendor.mediatek.hardware.keymanage@1.0-service
@@ -230,7 +225,6 @@ vendor/lib/hw/vendor.mediatek.hardware.keymanage@1.0-impl.so
 vendor/lib/vendor.mediatek.hardware.keymanage@1.0.so
 
 # Local time
-vendor/lib/hw/local_time.default.so
 vendor/lib/libcommon_time_client_vendor.so
 
 # Media
@@ -257,7 +251,6 @@ vendor/lib/libvp8dec_sa.ca7.so
 vendor/lib/libvp9dec_sa.ca7.so
 
 # Media (Dolby)
-lib/vendor.dolby.hardware.dms@1.0.so
 vendor/bin/hw/vendor.dolby.hardware.dms@1.0-service
 vendor/etc/dolby/dax-default.xml
 vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc
@@ -401,11 +394,9 @@ vendor/lib/vendor.mediatek.hardware.atci@1.0.so
 vendor/lib/vendor.mediatek.hardware.dfps@1.0.so
 vendor/lib/vendor.mediatek.hardware.lbs@1.0.so
 
-vendor/bin/gsm0710muxd
 vendor/bin/iwpriv
 vendor/bin/kisd
 vendor/bin/mtkcam-debug
-vendor/bin/netdc
 vendor/bin/pr_device_cert_id
 vendor/bin/rpmb_svc
 vendor/bin/securetime
@@ -413,7 +404,6 @@ vendor/bin/wipe_fos_flags
 vendor/data/misc/ProjectConfig.mk
 
 vendor/etc/init/camerahalserver.rc
-vendor/etc/init/gsm0710muxd.rc
 vendor/etc/init/init.wipe_fos_flags.rc
 vendor/etc/init/kisd.rc
 vendor/etc/init/pr_device_cert_id.rc
@@ -431,7 +421,6 @@ vendor/lib/libmtcloader.so
 vendor/lib/libmtkhardware_legacy.so
 vendor/lib/libmtknetutils.so
 vendor/lib/libmtksysutils.so
-vendor/lib/libsensorndkbridge.so
 vendor/lib/libsysenv.so
 
 
