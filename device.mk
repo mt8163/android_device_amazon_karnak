@@ -18,19 +18,22 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default
 
 PRODUCT_PACKAGES += \
-    fireos.hardware.audio.service
-
-PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.1-impl
 
+# Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio@2.0.vendor \
-    android.hardware.audio@4.0.vendor \
-    android.hardware.audio.effect@2.0.vendor \
-    android.hardware.audio.effect@4.0.vendor \
-    android.hardware.soundtrigger@2.0.vendor
+    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.soundtrigger@2.0.vendor \
+    android.hardware.bluetooth.a2dp@1.0.vendor \
+    android.hardware.bluetooth.audio-impl \
+    audio.bluetooth.default \
+    audio.primary.default \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
