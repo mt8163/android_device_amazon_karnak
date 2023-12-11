@@ -64,6 +64,7 @@ function blob_fixup() {
             ;;
         vendor/lib/libmtkcam_stdutils.so)
             "${PATCHELF}" --add-needed "libshim_mtkcam.so" "${2}"
+            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v30.so" "${2}"
             ;;
         vendor/lib/libcam.client.so)
             "${PATCHELF}" --add-needed "libshim_gui.so" "${2}"
