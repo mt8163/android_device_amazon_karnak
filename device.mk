@@ -258,6 +258,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     libwifi-hal-mt66xx
 
+# EmergencyInfo
+PRODUCT_PACKAGES += \
+    EmergencyInfo
+
 # VNDK Libraries
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so \
