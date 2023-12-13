@@ -107,6 +107,13 @@
 # CMDQ
 /dev/mtk_cmdq             0640   system     system
 
+# sensors 
+/dev/gsensor              0660  radio       system
+/dev/als_ps               0660  radio       system
+/dev/aal_als              0660  system      system
+/dev/m_als_misc           0660  system      system
+/dev/m_acc_misc           0660  system      system
+
 /sys/kernel/debug/ged/hal* fps_upper_bound  0660   system system
 /sys/kernel/debug/ged/hal* vsync_offset_level     0660   system system
 /sys/kernel/debug/ged/hal* event_notify            0660   system system
@@ -149,6 +156,19 @@
 /sys/devices/virtual/thermal/thermal_zone* trip_point_10_hyst 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_11_temp 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_11_hyst 0660 system system
+
+# Sensors
+/sys/class/sensor/m_acc_misc* accenablenodata    0660  system  system
+/sys/class/sensor/m_acc_misc* accactive          0660  system  system
+/sys/class/sensor/m_acc_misc* accdelay           0660  system  system
+/sys/class/sensor/m_acc_misc* accbatch           0660  system  system
+/sys/class/sensor/m_acc_misc* accflush           0660  system  system
+/sys/class/sensor/m_acc_misc* acccali            0660  system  system
+
+/sys/class/sensor/m_als_misc* alsactive         0660  system  system
+/sys/class/sensor/m_als_misc* alsdelay          0660  system  system
+/sys/class/sensor/m_als_misc* alsbatch          0660  system  system
+/sys/class/sensor/m_als_misc* alsflush          0660  system  system
 
 # USB role switch
 /sys/class/dual_role_usb/*	data_role	0660	system	system
