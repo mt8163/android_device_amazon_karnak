@@ -386,6 +386,7 @@ vendor/bin/hw/fireos.hardware.amazonthermal@1.0-service
 vendor/etc/init/fireos.hardware.amazonthermal@1.0-service.rc
 vendor/lib/hw/fireos.hardware.amazonthermal@1.0-impl.so
 vendor/lib/fireos.hardware.amazonthermal@1.0.so
+vendor/lib/fireos.hardware.amazonthermal@1.1.so
 
 # Miscellaneous
 vendor/lib/vendor.mediatek.hardware.atci@1.0.so
