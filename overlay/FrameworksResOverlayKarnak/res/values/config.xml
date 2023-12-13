@@ -201,5 +201,8 @@
 
     <!-- Enable lockscreen rotation by default -->
     <bool name="config_enableLockScreenRotation">true</bool>
+    
+    <!-- If supported, are dreams enabled? (by default) -->
+    <bool name="config_dreamsEnabledByDefault">true</bool>
 
 </resources>
