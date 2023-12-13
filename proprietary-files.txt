@@ -290,7 +290,6 @@ vendor/lib/libbluetooth_mtk_pure.so
 vendor/lib/libbluetooth_relayer.so
 vendor/lib/libbt-vendor.so
 vendor/etc/init/btmac.rc
-vendor/lib/fireos.hardware.idme@1.0.so
 vendor/lib/libbluetooth_mtk.so
 vendor/lib/libbt-vendor.so
 
@@ -365,9 +364,12 @@ vendor/etc/powerscntbl.cfg
 
 # IDME
 vendor/bin/idme
-vendor/bin/hw/fireos.hardware.idme@1.0-service
-vendor/etc/init/fireos.hardware.idme@1.0-service.rc
+vendor/bin/hw/fireos.hardware.idme@1.1-service
+vendor/etc/init/fireos.hardware.idme@1.1-service.rc
 vendor/lib/hw/fireos.hardware.idme@1.0-impl.so
+vendor/lib/hw/fireos.hardware.idme@1.1-impl.so
+vendor/lib/fireos.hardware.idme@1.0.so
+vendor/lib/fireos.hardware.idme@1.1.so
 
 # Connectivity
 vendor/etc/init/init.wlan_drv.rc
