@@ -174,3 +174,9 @@
 /sys/class/dual_role_usb/*	data_role	0660	system	system
 /sys/class/dual_role_usb/*	power_role	0660	system	system
 /sys/class/dual_role_usb/*	mode		0660	system	system
+
+
+/sys/class/input/input[1-10]* enable    0660  system  system
+/sys/class/input/input[1-10]* delay     0660  system  system
+/sys/class/input/input[1-10]* wake      0660  system  system
+/sys/class/input/input[1-10]* offsets   0660  system  system
