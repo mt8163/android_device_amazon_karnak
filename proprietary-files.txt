@@ -422,4 +422,7 @@ vendor/lib/libmtksysutils.so
 vendor/lib/libsysenv.so
 
 
-
+# VNDK Libs
+system/lib/vndk-28/libkeymaster_messages.so:vendor/lib/libkeymaster_messages-v28.so
+system/lib/vndk-28/libprotobuf-cpp-lite.so:vendor/lib/libprotobuf-cpp-lite-v28.so
+system/lib/vndk-28/libprotobuf-cpp-lite.so:vendor/lib/libprotobuf-cpp-full-v28.so
