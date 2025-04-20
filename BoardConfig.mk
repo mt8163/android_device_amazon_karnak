@@ -17,6 +17,9 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_VARIANT_RUNTIME := cortex-a53
 
+# A/B
+AB_OTA_UPDATER := false
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := karnak
 TARGET_NO_BOOTLOADER := true
