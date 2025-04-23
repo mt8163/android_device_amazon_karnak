@@ -67,6 +67,10 @@ blob_fixups: blob_fixups_user_type = {
             br'(interface\s+vendor\.mediatek\.hardware\.keymaster_attestation@1\.1::IKeymasterDevice\s+default)',
             br'# \1',
         ),
+    'vendor/lib/libvcodec_oal.so': blob_fixup()
+        .clear_symbol_version('__aeabi_memcpy')
+        .clear_symbol_version('__aeabi_memset')
+        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
