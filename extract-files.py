@@ -52,6 +52,21 @@ blob_fixups: blob_fixups_user_type = {
             b'\x99@\x1a\x02\xd1 F\x02\xb0\x10\xbd\x02\xf0',
             b'\x99@\x1a\x02\xd1\x00 \x02\xb0\x10\xbd\x02\xf0',
         ),
+    'vendor/etc/init/fireos.hardware.amazonthermal@1.0-service.rc': blob_fixup()
+        .binary_regex_replace(
+            br'/\*\x0a \* Copyright \(c\) 2019 Amazon\.com, Inc\. or its affiliates\.  All rights reserved\.\x0a \*\x0a \* PROPRIETARY/CONFIDENTIAL\.  USE IS SUBJECT TO LICENSE TERMS\.\x0a \*/\x0a\x0a',
+            b'',
+        ),
+    'vendor/etc/init/fireos.hardware.connectivity.networkpower@1.0-service.rc': blob_fixup()
+        .binary_regex_replace(
+            br'/\*\x0a \* Copyright \(c\) \d{4} Amazon\.com, Inc\. or its affiliates\.  All rights reserved\.\x0a \*\x0a \* PROPRIETARY/CONFIDENTIAL\.  USE IS SUBJECT TO LICENSE TERMS\.\x0a \*/\x0a\x0a',
+            b'',
+        ),
+    'vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc': blob_fixup()
+        .binary_regex_replace(
+            br'(interface\s+vendor\.mediatek\.hardware\.keymaster_attestation@1\.1::IKeymasterDevice\s+default)',
+            br'# \1',
+        ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
