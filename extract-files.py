@@ -47,6 +47,22 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libamazonlog.so'),
     'vendor/lib/hw/audio.btle.default.so': blob_fixup()
         .add_needed('libamazonlog.so'),
+    'vendor/liblibmtkshifter_vendor.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libbessound_hd_mtk_vendor.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libmtklimiter_vendor.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libblisrc_vendor.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libcvsd_mtk.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libmsbc_mtk.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libmtkshifter_vendor.so': blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/lib/libsysenv.so': blob_fixup()
+        .add_needed('libbase_shim.so'),
     'vendor/lib/libmtk_drvb.so': blob_fixup()
         .binary_regex_replace(
             b'\x99@\x1a\x02\xd1 F\x02\xb0\x10\xbd\x02\xf0',
