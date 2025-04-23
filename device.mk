@@ -108,8 +108,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl-mediatek \
-    android.hardware.light@2.0-service-mediatek
+    android.hardware.light-service.mediatek
 
 # Enable DM file pre-opting to reduce first boot time
 PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
@@ -137,10 +136,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libkeymaster3device.vendor
-
-# Lights
-PRODUCT_PACKAGES +=\
-    lights.mt8163
 
 # Media
 PRODUCT_COPY_FILES += \
