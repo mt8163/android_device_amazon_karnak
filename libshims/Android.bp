@@ -41,17 +41,19 @@ cc_library_shared {
 
 cc_library_shared {
     name: "libshim_gui",
-    srcs: [
-        "libshim_utils.cpp",
-        "libshim_gui.cpp",
-    ],
-
     shared_libs: [
-        "libutilscallstack",
-        "libutils",
-        "libgui_vendor",
         "libui",
+        "libsync",
+        "libutils",
+        "libutilscallstack",
     ],
-
-    proprietary: true,
+    srcs: [
+        "libui/Fence.cpp",
+        "libui/GraphicBuffer.cpp",
+        "libui/GraphicBufferMapper.cpp",
+        "libshim_utils.cpp",
+    ],
+    system_ext_specific: true,
+    vendor_available: true,
+}
 }
