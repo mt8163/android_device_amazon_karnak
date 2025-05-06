@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
-**
-** Copyright (C) 2023 The LineageOS Project
-**
-** SPDX-License-Identifier: Apache-2.0
-**
-*/
+     SPDX-FileCopyrightText: 2025 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Device configuration indicating whether we should avoid using accelerated graphics
@@ -15,35 +10,6 @@
          your device's memory use without going to the point of causing applications to turn
          off features. -->
     <bool name="config_avoidGfxAccel">true</bool>
-
-    <!-- If supported and enabled, are dreams activated when asleep and charging? (by default) -->
-    <bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
-
-    <!-- Whether UI for multi user should be shown -->
-    <bool name="config_enableMultiUserUI">true</bool>
-
-    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
-                  Software implementation will be used if config_hardware_auto_brightness_available is not set -->
-    <bool name="config_automatic_brightness_available">true</bool>
-
-    <!-- Determines whether the shell features all run on another thread. -->
-    <bool name="config_enableShellMainThread">true</bool>
-
-    <!-- Boolean indicating whether the wifi chipset supports background scanning mechanism.
-         This mechanism allows the host to remain in suspend state and the dongle to actively
-         scan and wake the host when a configured SSID is detected by the dongle. This chipset
-         capability can provide power savings when wifi needs to be always kept on. -->
-    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
-
-    <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
-    <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.8</item>
-
-    <!-- The amount to scale reduced scale snapshots for Overview and snapshot starting windows.
-         Reduced scale snapshots are loaded before full screen snapshots to improve load times and
-         minimize the chance the user will see an empty task card. If set to 0, reduced scale
-         snapshots are disabled, and snapshots will only be stored at config_highResTaskSnapshotScale
-         -->
-    <item name="config_lowResTaskSnapshotScale" format="float" type="dimen">0.3</item>
 
     <!-- Device configuration setting the minfree tunable in the lowmemorykiller in the kernel.
          A high value will cause the lowmemorykiller to fire earlier, keeping more memory
@@ -54,21 +20,25 @@
          scaled proportionally to the smaller buckets.  -1 keeps the default. -->
     <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">384000</integer>
 
-    <!-- True if the device supports Sustained Performance Mode -->
-    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+    <!-- Set this to true to enable the platform's auto-power-save modes like doze and
+         app standby.  These are not enabled by default because they require a standard
+         cloud-to-device messaging service for apps to interact correctly with the modes
+         (such as to be able to deliver an instant message to the device even when it is
+         dozing).  This should be enabled if you have such services and expect apps to
+         correctly use them when installed on your device.  Otherwise, keep this disabled
+         so that applications can still use their own mechanisms. -->
+    <bool name="config_enableAutoPowerModes">true</bool>
 
-    <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
-    <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
-
-    <string-array name="networkAttributes" translatable="false" >
+    <!-- NOTE: The telephony module is no longer reading the configuration below for available
+         APN types.  The set of APN types and relevant settings are specified within the telephony
+         module and are non-configurable.  Whether or not data connectivity over a cellular network
+         is available at all is controlled by the flag: config_moble_data_capable. -->
+    <string-array name="networkAttributes" translatable="false">
         <item>wifi,1,1,2,-1,true</item>
         <item>bluetooth,7,7,0,-1,true</item>
         <item>ethernet,9,9,0,-1,true</item>
     </string-array>
 
-    <!-- This string array should be overridden by the device to present a list of radio
-         attributes.  This is used by the connectivity manager to decide which networks can coexist
-         based on the hardware -->
     <!-- An Array of "[ConnectivityManager connectionType],
                       [# simultaneous connection types]"  -->
     <string-array name="radioAttributes" translatable="false">
@@ -77,13 +47,67 @@
         <item>9,1</item>
     </string-array>
 
-   <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
-         The N entries of this array define N  1 zones as follows:
-         Zone 0:        0 <= LUX < array[0]
-         Zone 1:        array[0] <= LUX < array[1]
+    <!-- Flag indicating whether we should enable the automatic brightness.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- Flag indicating whether we should enable smart battery. -->
+    <bool name="config_smart_battery_available">true</bool>
+
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
+    <!-- Control whether Night display is available. This should only be enabled on devices
+         that have a HWC implementation that can apply the matrix passed to setColorTransform
+         without impacting power, performance, and app compatibility (e.g. protected content). -->
+    <bool name="config_nightDisplayAvailable">false</bool>
+
+    <!-- Disable lockscreen rotation by default -->
+    <bool name="config_enableLockScreenRotation">true</bool>
+
+    <!-- Control the behavior when the user long presses the home button.
+            0 - Nothing
+            1 - Launch all apps intent
+            2 - Launch assist intent
+            3 - Launch notification panel
+         This needs to match the constants in
+         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
+    -->
+    <integer name="config_longPressOnHomeBehavior">2</integer>
+
+    <!-- Note: This setting is deprecated, please use
+    config_screenBrightnessSettingMinimumFloat instead -->
+    <integer name="config_screenBrightnessSettingMinimum">2</integer>
+
+    <!-- Note: This setting is deprecated, please use
+    config_screenBrightnessSettingDefaultFloat instead -->
+    <integer name="config_screenBrightnessSettingDefault">90</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">5000</integer>
+
+    <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
+         The N entries of this array define N + 1 control points as follows:
+         (1-based arrays)
+
+         Point 1:            (0, value[1]):             lux <= 0
+         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
+         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
          ...
-         Zone N:        array[N - 1] <= LUX < array[N]
-         Zone N + 1     array[N] <= LUX < infinity
+         Point N+1: (level[N], value[N+1]):  level[N] < lux
+
+         The control points must be strictly increasing.  Each control point
+         corresponds to an entry in the brightness backlight values arrays.
+         For example, if lux == level[1] (first element of the levels array)
+         then the brightness will be determined by value[2] (second element
+         of the brightness values array).
+
+         Spline interpolation is used to determine the auto-brightness
+         backlight values for lux levels between these control points.
+
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>6</item>
@@ -107,40 +131,33 @@
         <item>10240</item>
     </integer-array>
 
-    <!-- Array of output values for LCD backlight corresponding to the LUX values
+    <!-- Array of output values for LCD backlight corresponding to the lux values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
+         The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>12</item>     <!-- 0-5 -->
-        <item>16</item>     <!-- 6-7 -->
-        <item>18</item>     <!-- 8-9 -->
-        <item>20</item>     <!-- 10-14 -->
-        <item>25</item>     <!-- 15-29 -->
-        <item>28</item>     <!-- 30-49 -->
-        <item>34</item>     <!-- 50-99 -->
-        <item>37</item>     <!-- 100-229 -->
-        <item>41</item>     <!-- 239-399 -->
-        <item>48</item>     <!-- 400-499 -->
-        <item>57</item>     <!-- 500-649 -->
-        <item>75</item>     <!-- 650-824 -->
-        <item>81</item>     <!-- 825-999 -->
-        <item>90</item>     <!-- 1000-2499 -->
-        <item>100</item>    <!-- 2500-4999 -->
-        <item>125</item>    <!-- 5000-6249 -->
-        <item>165</item>    <!-- 6250-7499 -->
-        <item>200</item>    <!-- 7500-9999 -->
-        <item>225</item>    <!-- 10000-11999 -->
-        <item>255</item>    <!-- 12000-19417 (max value of light sensor) -->
-    </integer-array>
-
-  <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
-         for debouncing the light sensor.  Different constants are used to debounce the light sensor
-         when adapting to brighter or darker environments.  This parameter controls how quickly
-         brightness changes occur in response to an observed change in light level that exceeds the
-         hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">4000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">5000</integer>
+     <integer-array name="config_autoBrightnessLcdBacklightValues">
+          <item>12</item>
+          <item>16</item>
+          <item>18</item>
+          <item>20</item>
+          <item>25</item>
+          <item>28</item>
+          <item>34</item>
+          <item>37</item>
+          <item>41</item>
+          <item>48</item>
+          <item>57</item>
+          <item>75</item>
+          <item>81</item>
+          <item>90</item>
+          <item>100</item>
+          <item>125</item>
+          <item>165</item>
+          <item>200</item>
+          <item>225</item>
+          <item>255</item>
+     </integer-array>
 
     <!-- Flag indicating whether the current device is "voice capable".
          If true, this means that the device supports circuit-switched
@@ -160,6 +177,7 @@
          receiving sms via the telephony network.
          This can be overridden to false for "data only" devices
          which can't send and receive sms message.
+
          Note: Disable SMS also disable voicemail waiting sms,
                cell broadcasting sms, and MMS. -->
     <bool name="config_sms_capable">false</bool>
@@ -170,8 +188,88 @@
          This can be overridden to false for devices that support voice and/or sms . -->
     <bool name="config_mobile_data_capable">false</bool>
 
-    <!-- Default list of files pinned by the Pinner Service -->
-    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- If supported and enabled, are dreams activated when asleep and charging? (by default) -->
+    <bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
+
+    <!-- ComponentName of a dream to show whenever the system would otherwise have
+         gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
+         try to start this dream if possible.  The dream should typically call startDozing()
+         to put the display into a low power state and allow the application processor
+         to be suspended.  When the dream ends, the system will go to sleep as usual.
+         Specify the component name or an empty string if none.
+
+         Note that doze dreams are not subject to the same start conditions as ordinary dreams.
+         Doze dreams will run whenever the power manager is in a dozing state. -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
+
+    <!-- If true, the doze component is not started until after the screen has been
+         turned off and the screen off animation has been performed. -->
+    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+
+    <!-- Power Management: Specifies whether to decouple the interactive state of the
+         device from the display on/off state.
+
+         When false, setInteractive(..., true) will be called before the display is turned on
+         and setInteractive(..., false) will be called after the display is turned off.
+         This mode provides best compatibility for devices that expect the interactive
+         state to be tied to the display state.
+
+         When true, setInteractive(...) will be called independently of whether the display
+         is being turned on or off.  This mode enables the power manager to reduce
+         clocks and disable the touch controller while the display is on.
+
+         This resource should be set to "true" when a doze component has been specified
+         to maximize power savings but not all devices support it.
+
+         Refer to power.h for details.
+    -->
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">8</integer>
+
+    <!-- Whether WiFi display is supported by this device.
+         There are many prerequisites for this feature to work correctly.
+         Here are a few of them:
+         * The WiFi radio must support WiFi P2P.
+         * The WiFi radio must support concurrent connections to the WiFi display and
+           to an access point.
+         * The Audio Server audio_policy_configuration.xml file must specify a rule for
+           the "r_submix" remote submix module.  This module is used to record and stream system
+           audio output to the WiFi display encoder in the media server.
+         * The remote submix module "audio.r_submix.default" must be installed on the device.
+         * The device must be provisioned with HDCP keys (for protected content).
+    -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
+    <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
+    <item format="float" name="config_highResTaskSnapshotScale" type="dimen">0.8</item>
+
+    <!-- The amount to scale reduced scale snapshots for Overview and snapshot starting windows.
+         Reduced scale snapshots are loaded before full screen snapshots to improve load times and
+         minimize the chance the user will see an empty task card. If set to 0, reduced scale
+         snapshots are disabled, and snapshots will only be stored at config_highResTaskSnapshotScale
+         -->
+    <item format="float" name="config_lowResTaskSnapshotScale" type="dimen">0.3</item>
+
+    <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
+    <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
+
+    <!-- Controls the navigation bar interaction mode:
+         0: 3 button mode (back, home, overview buttons)
+         1: 2 button mode (back, home buttons + swipe up for overview)
+         2: gestures only for back, home and overview -->
+    <integer name="config_navBarInteractionMode">2</integer>
+
+    <!-- True if the device supports Sustained Performance Mode-->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+
+    <!-- Default files to pin via Pinner Service -->
+    <string-array name="config_defaultPinnerServiceFiles" translatable="false">
         <item>"/system/framework/framework.jar"</item>
         <item>"/system/framework/services.jar"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
@@ -181,179 +279,48 @@
         <item>"/system/bin/surfaceflinger"</item>
     </string-array>
 
-     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-         autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
-
-    <!-- Whether WiFi display is supported by this device.
-         There are many prerequisites for this feature to work correctly.
-         Here are a few of them:
-         * The WiFi radio must support WiFi P2P.
-         * The WiFi radio must support concurrent connections to the WiFi display and
-           to an access point.
-         * The Audio Flinger audio_policy.conf file must specify a rule for the "r_submix"
-           remote submix module.  This module is used to record and stream system
-           audio output to the WiFi display encoder in the media server.
-         * The remote submix module "audio.r_submix.default" must be installed on the device.
-         * The device must be provisioned with HDCP keys (for protected content).
-    -->
-    <bool name="config_enableWifiDisplay">true</bool>
-
-    <!-- Enable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">true</bool>
-    
-    <!-- If supported, are dreams enabled? (by default) -->
-    <bool name="config_dreamsEnabledByDefault">true</bool>
-
-    <!-- Control the behavior when the user long presses the home button.
-            0 - Nothing
-            1 - Launch all apps intent
-            2 - Launch assist intent
-         This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-    -->
-    <integer name="config_longPressOnHomeBehavior">2</integer>
-
-    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
-         on the headphone/microphone jack. When false use the older uevent framework. -->
-    <bool name="config_useDevInputEventForAudioJack">false</bool>
-    
-        <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>
-
-    <!--  Maximum number of supported users -->
-    <integer name="config_multiuserMaximumUsers">8</integer>
-
-    <!--  Whether Multiuser UI should be shown -->
-    <bool name="config_enableMultiUserUI">true</bool>
-
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up. The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
-
-    <!-- ComponentName of a dream to show whenever the system would otherwise have
-         gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
-         try to start this dream if possible.  The dream should typically call startDozing()
-         to put the display into a low power state and allow the application processor
-         to be suspended.  When the dream ends, the system will go to sleep as usual.
-         Specify the component name or an empty string if none.
-         Note that doze dreams are not subject to the same start conditions as ordinary dreams.
-         Doze dreams will run whenever the power manager is in a dozing state. -->
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
-    
-        <!-- If true, the doze component is not started until after the screen has been turned off
-         and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
-
-    <!-- Specifies whether to decouple the interactive state of the device from the display on/off state. -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
-
-    <!-- Set this to true to enable the platform's auto-power-save modes like doze and
-         app standby.  These are not enabled by default because they require a standard
-         cloud-to-device messaging service for apps to interact correctly with the modes
-         (such as to be able to deliver an instant message to the device even when it is
-         dozing).  This should be enabled if you have such services and expect apps to
-         correctly use them when installed on your device.  Otherwise, keep this disabled
-         so that applications can still use their own mechanisms. -->
-    <bool name="config_enableAutoPowerModes">true</bool>
-
-    <!-- Whether to allow process with media UID to access CameraServiceProxy -->
-    <bool name="config_allowMediaUidForCameraServiceProxy">true</bool>
-    
-       <!-- Screen brightness used to dim the screen when the user activity
-         timeout expires.  May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">10</integer>
-
-    <!-- Screen brightness used to dim the screen while dozing in a very low power state.
-         May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">1</integer>
-
-    <!-- Default screen brightness setting.
-         Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">90</integer>
-
-    <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">2</integer>
-
-    <!-- If we allow automatic adjustment of screen brightness while dozing, how many times we want
-         to reduce it to preserve the battery. Value of 100% means no scaling. -->
-    <fraction name="config_screenAutoBrightnessDozeScaleFactor">100%</fraction>
-
-    <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
-    <bool name="config_zramWriteback">true</bool>
-
-    <!-- Control whether Night display is available. This should only be enabled on devices
-         that have a HWC implementation that can apply the matrix passed to setColorTransform
-         without impacting power, performance, and app compatibility (e.g. protected content). -->
-    <bool name="config_nightDisplayAvailable">false</bool>
-
-    <!-- The component name, flattened to a string, for the default autofill service
-         to  enabled for an user. This service must be trusted, as it can be activated
-         without explicit consent of the user. If no autofill service with the
-          specified name exists on the device, autofill will be disabled by default.
-    -->
-    <string name="config_defaultAutofillService" translatable="false">com.google.android.gms/.autofill.service.AutofillService</string>
-    
-       <!-- The package of the time zone rules data application. Expected to be configured
-         by OEMs to reference their own priv-app APK package.
-         A package-targeted com.android.intent.action.timezone.TRIGGER_RULES_UPDATE_CHECK intent
-         will be sent to the updater app if the system server detects an update to the updater or
-         data app packages.
-         [This is only used if config_enableUpdateableTimeZoneRules and
-         config_timeZoneRulesUpdateTrackingEnabled are true.] -->
-    <string name="config_timeZoneRulesDataPackage" translatable="false">com.google.android.timezone.data</string>
+    <!-- Colon separated list of package names that should be granted DND access -->
+    <string name="config_defaultDndAccessPackages" translatable="false">com.google.android.gms:com.google.android.GoogleCamera:com.google.intelligence.sense:com.android.settings.intelligence</string>
 
     <!-- Colon separated list of package names that should be granted Notification Listener access -->
     <string name="config_defaultListenerAccessPackages" translatable="false">com.google.android.apps.nexuslauncher:com.google.android.setupwizard:com.google.android.apps.pixelmigrate:com.google.android.as</string>
 
-    <!-- Package name that should be granted Notification Assistant access -->
-    <string name="config_defaultAssistantAccessPackage" translatable="false">com.google.android.ext.services</string>
+    <!-- The component name, flattened to a string, for the default autofill service
+         to  enabled for a user. This service must be trusted, as it can be activated
+         without explicit consent of the user. If no autofill service with the
+          specified name exists on the device, autofill will be disabled by default.
+    -->
+    <string name="config_defaultAutofillService" translatable="false">com.google.android.gms/.autofill.service.AutofillService</string>
 
-    <!-- Colon separated list of package names that should be granted DND access -->
-    <string name="config_defaultDndAccessPackages" translatable="false">com.google.android.gms:com.google.android.GoogleCamera:com.google.intelligence.sense:com.android.settings.intelligence</string>
+    <!-- The package name for the OEM custom system textclassifier service.
+         This service must be trusted, as it can be activated without explicit consent of the user.
+         Example: "com.android.textclassifier"
+         If this is empty, the default textclassifier service (i.e. config_servicesExtensionPackage)
+         will be used.
+
+         See android.view.textclassifier.TextClassificationManager.
+    -->
+    <string name="config_defaultTextClassifierPackage" translatable="false">com.google.android.as</string>
 
     <!-- The package name for the default wellbeing app.
          This package must be trusted, as it has the permissions to control other applications
          on the device.
          Example: "com.android.wellbeing"
+
+         Note: This config is deprecated, please use config_systemWellbeing instead.
      -->
     <string name="config_defaultWellbeingPackage" translatable="false">com.google.android.apps.wellbeing</string>
 
-    <!-- The package name for the default system textclassifier service.
-         This service must be trusted, as it can be activated without explicit consent of the user.
-         Example: "com.android.textclassifier"
-         If no textclassifier service with the specified name exists on the device (or if this is
-         set to empty string), a default textclassifier will be loaded in the calling app's process.
-         See android.view.textclassifier.TextClassificationManager.
-    -->
-    <string name="config_defaultTextClassifierPackage" translatable="false">com.google.android.as</string>
-
     <!-- An array of packages that need to be treated as type service in battery settings -->
-    <string-array translatable="false" name="config_batteryPackageTypeService">
+    <string-array name="config_batteryPackageTypeService" translatable="false">
         <item>com.google.android.gms</item>
         <item>com.google.android.apps.gcs</item>
     </string-array>
-
-    <!-- Flag indicating whether we should enable smart battery. -->
-    <bool name="config_smart_battery_available">true</bool>
-
-    <!-- The list of components which should be automatically disabled for a specific device. -->
-    <string-array name="config_deviceDisabledComponents" translatable="false">
-        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
-        <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
-    </string-array>
-
-    <!-- Controls the navigation bar interaction mode:
-         0: 3 button mode (back, home, overview buttons)
-         1: 2 button mode (back, home buttons + swipe up for overview)
-         2: gestures only for back, home and overview -->
-    <integer name="config_navBarInteractionMode">2</integer>
 
     <!-- If device supports corner radius on windows.
          This should be turned off on low-end devices to improve animation performance. -->
     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
 
+    <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
+    <bool name="config_zramWriteback">true</bool>
 </resources>
