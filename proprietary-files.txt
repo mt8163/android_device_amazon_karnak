@@ -421,9 +421,8 @@ vendor/lib/libmtkhardware_legacy.so
 vendor/lib/libmtknetutils.so
 vendor/lib/libmtksysutils.so
 vendor/lib/libsysenv.so
-
-
-# VNDK Libs
-system/lib/vndk-28/libkeymaster_messages.so:vendor/lib/libkeymaster_messages-v28.so
-system/lib/vndk-28/libprotobuf-cpp-lite.so:vendor/lib/libprotobuf-cpp-lite-v28.so
-system/lib/vndk-28/libprotobuf-cpp-lite.so:vendor/lib/libprotobuf-cpp-full-v28.so
+vendor/lib/libmtkcutils.so
+vendor/lib/libmtkproperty.so
+vendor/lib/libmtkrillog.so
+vendor/lib/libopuscodec.so
+vendor/lib/libnvramagentclient.so
