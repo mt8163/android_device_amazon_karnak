@@ -287,17 +287,14 @@ vendor/lib/libbluetooth_hw_test.so
 vendor/lib/libbluetooth_relayer.so
 vendor/lib/libbluetoothem_mtk.so
 vendor/lib/libbluetooth_mtk_pure.so
-vendor/lib/libbluetooth_relayer.so
 vendor/lib/libbt-vendor.so
 vendor/etc/init/btmac.rc
 vendor/lib/libbluetooth_mtk.so
-vendor/lib/libbt-vendor.so
 
 # Camera
 vendor/lib/hw/vendor.mediatek.hardware.camera.ccap@1.0-impl.so
 vendor/lib/vendor.mediatek.hardware.camera.ccap@1.0.so
 vendor/lib/vendor.mediatek.hardware.camera.device@1.1.so
-
 vendor/bin/hw/camerahalserver
 vendor/lib/lib3a.log.so
 vendor/lib/lib3am.so
