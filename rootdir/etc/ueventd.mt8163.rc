@@ -89,7 +89,7 @@
 /dev/MTK_SMI              0666   media      media
 
 # MDP SYNC
-/dev/mdp_sync             0660   system     system
+/dev/mdp_sync             0644   system     system
 
 # device info /proc interface
 /dev/devmap               0444   root       media
