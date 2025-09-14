@@ -179,7 +179,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="8" />
         </MediaCodec>
         <MediaCodec name="OMX.MTK.VIDEO.ENCODER.HEVC" type="video/hevc" >
-        	  <Limit name="size" min="128x96" max="1280x720" />
+        	<Limit name="size" min="128x96" max="1280x720" />
             <Limit name="alignment" value="16x16" />
             <Limit name="block-size" value="16x16" />
             <Quirk name="requires-allocate-on-input-ports" />
