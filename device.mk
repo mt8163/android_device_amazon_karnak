@@ -17,13 +17,22 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default
 
-# Audio HAL
+# BT audio
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.bluetooth.audio@2.1-impl \
+    android.hardware.bluetooth.audio@2.1.vendor
+
+# Audio (HIDL v7)
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio@2.1-impl \
-    android.hardware.soundtrigger@2.3-impl
+    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.soundtrigger@2.0.vendor \
+    android.hardware.bluetooth.audio-impl \
+    audio.bluetooth.default \
+    audio.primary.default \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -36,14 +45,16 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinyxml
 
+# Audio
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/primary_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
-    frameworks/av/services/audiopolicy/config/stub_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/stub_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/hearing_aid_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration_7_0.xml \
-    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/msd_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/msd_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml \
 
@@ -97,7 +108,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.mediatek
+    android.hardware.light-service.mtk-common
 
 # Enable DM file pre-opting to reduce first boot time
 PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
@@ -106,10 +117,6 @@ PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
-
-# IDME
-PRODUCT_PACKAGES += \
-    fireos.hardware.idme@1.0.vendor
 
 # Health
 PRODUCT_PACKAGES += \
@@ -211,18 +218,21 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libladder \
-    libudf
+    libudf \
+    libprocessgroup.vendor 
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/amazon
+    hardware/amazon \
+    vendor/amazon/mt8163 \
+    vendor/amazon/karnak \
+    hardware/google/pixel
 
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl-mediatek \
-    android.hardware.bluetooth@1.0-service-mediatek \
-    android.hardware.bluetooth.a2dp@1.0.vendor
+    android.hardware.bluetooth@1.0-service-mediatek 
 
 # Libion
 PRODUCT_PACKAGES += \
@@ -230,7 +240,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb-service-mediatek
+    android.hardware.usb-service.mediatek
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
@@ -242,20 +252,20 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     wpa_supplicant \
-    libwifi-hal-mt66xx
+    libwifi-hal-mediatek
 
 # EmergencyInfo
 PRODUCT_PACKAGES += \
     EmergencyInfo
 
-# OMX
+# OMX service and Stagefright core (vendor variants)
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-service \
-    libstagefright_omx.vendor
+    libstagefright_omx.vendor \
+    libstagefright_softomx.vendor \
+    libstagefright_softomx_plugin.vendor \
 
-# VNDK Libraries
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so
+$(call soong_config_set,recovery,amonet_support,true)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/amazon/karnak/karnak-vendor.mk)
