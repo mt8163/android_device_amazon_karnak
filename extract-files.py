@@ -26,7 +26,8 @@ namespace_imports = [
 
 blob_fixups: blob_fixups_user_type = {
     'vendor/lib/libnvram.so': blob_fixup()
-        .add_needed('libshim_nvram.so'),
+        .add_needed('libshim_nvram.so')
+        .add_needed('libbase_shim.so'),
     'vendor/lib/hw/keystore.mt8163.so': blob_fixup()
         .add_needed('libshim_keymaster.so')
         .replace_needed('libkeymaster_messages.so', 'libkeymaster_messages-v28.so'),
@@ -38,7 +39,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
         .add_needed('libshim_gui.so'),
     'vendor/lib/hw/fireos.hardware.audio@4.0-impl.so': blob_fixup()
-        .replace_needed('android.hardware.audio.common@4.0-util.so', 'android.hardware.audio.common@4.0-util_v28.so'),
+        .replace_needed('android.hardware.audio.common@4.0-util.so', 'android.hardware.audio.common@4.0-util-v28.so'),
     'vendor/lib/libwvhidl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-lite.so', 'libprotobuf-cpp-lite-v28.so'),
     'vendor/lib/mediadrm/libwvdrmengine.so' : blob_fixup()
