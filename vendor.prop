@@ -8,6 +8,8 @@ ro.mtk_sec_video_path_support=1
 ro.vendor.mtk_in_house_tee_support=true
 ro.vendor.mtk_sec_video_path_support=1
 vendor.mtk.vdec.waitkeyframeforplay=1
+ro.vendor.mtk_config_max_dram_size=0x100000000
+ro.vendor.mtk.product.first_api_level=25
 
 # Watchdog
 ro.hw_timeout_multiplier=6
@@ -70,6 +72,7 @@ persist.vendor.vilte_support=0
 persist.vendor.viwifi_support=0
 vendor.connsys.driver.ready=no
 ro.vendor.mtk_dhcpv6c_wifi=1
+ro.vendor.wfd.iframesize.level=0
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
@@ -91,3 +94,5 @@ bluetooth.hci.erroneous_data_reporting.enabled=false
 
 # Zygote
 zygote.critical_window.minute=10
+ro.vendor.mtk.audio_supports_seteventcallback=false
+ro.vendor.mediatek.platform=MT8163
