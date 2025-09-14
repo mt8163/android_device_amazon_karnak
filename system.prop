@@ -13,3 +13,6 @@ pm.dexopt.shared=quicken
 
 # Remove the llkd process
 ro.llk.enable=false
+
+# System
+persist.sys.binary_xml=false
