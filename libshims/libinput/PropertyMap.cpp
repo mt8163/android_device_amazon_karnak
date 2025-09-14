@@ -79,8 +79,8 @@ std::optional<int32_t> PropertyMap::getInt(const std::string& key) const {
     char* end;
     int32_t value = static_cast<int32_t>(strtol(stringValue->c_str(), &end, 10));
     if (*end != '\0') {
-        ALOGW("Property key '%s' has invalid value '%s'.  Expected an integer.", key.c_str(),
-              stringValue->c_str());
+        ALOGW("Property key '%s' has invalid value '%s'.  Expected an integer.", key.c_str(), 
+        stringValue->c_str());
         return std::nullopt;
     }
     return value;
@@ -96,7 +96,7 @@ std::optional<float> PropertyMap::getFloat(const std::string& key) const {
     float value = strtof(stringValue->c_str(), &end);
     if (*end != '\0') {
         ALOGW("Property key '%s' has invalid value '%s'.  Expected a float.", key.c_str(),
-              stringValue->c_str());
+               stringValue->c_str());
         return std::nullopt;
     }
     return value;
@@ -112,7 +112,7 @@ std::optional<double> PropertyMap::getDouble(const std::string& key) const {
     double value = strtod(stringValue->c_str(), &end);
     if (*end != '\0') {
         ALOGW("Property key '%s' has invalid value '%s'.  Expected a double.", key.c_str(),
-              stringValue->c_str());
+               stringValue->c_str());
         return std::nullopt;
     }
     return value;
@@ -143,8 +143,8 @@ android::base::Result<std::unique_ptr<PropertyMap>> PropertyMap::load(const char
     status = parser.parse();
 #if DEBUG_PARSER_PERFORMANCE
     nsecs_t elapsedTime = systemTime(SYSTEM_TIME_MONOTONIC) - startTime;
-    ALOGD("Parsed property file '%s' %d lines in %0.3fms.", tokenizer->getFilename().string(),
-          tokenizer->getLineNumber(), elapsedTime / 1000000.0);
+    ALOGD("Parsed property file '%s' %d lines in %0.3fms.", tokenizer->getFilename().c_str(),
+            tokenizer->getLineNumber(), elapsedTime / 1000000.0);
 #endif
     if (status) {
         return android::base::Error(BAD_VALUE) << "Could not parse " << filename;
@@ -163,16 +163,16 @@ PropertyMap::Parser::~Parser() {}
 status_t PropertyMap::Parser::parse() {
     while (!mTokenizer->isEof()) {
 #if DEBUG_PARSER
-        ALOGD("Parsing %s: '%s'.", mTokenizer->getLocation().string(),
-              mTokenizer->peekRemainderOfLine().string());
+        ALOGD("Parsing %s: '%s'.", mTokenizer->getLocation().c_str(),
+            mTokenizer->peekRemainderOfLine().c_str());
 #endif
 
         mTokenizer->skipDelimiters(WHITESPACE);
 
         if (!mTokenizer->isEol() && mTokenizer->peekChar() != '#') {
             String8 keyToken = mTokenizer->nextToken(WHITESPACE_OR_PROPERTY_DELIMITER);
-            if (keyToken.isEmpty()) {
-                ALOGE("%s: Expected non-empty property key.", mTokenizer->getLocation().string());
+            if (keyToken.length() == 0) {
+                ALOGE("%s: Expected non-empty property key.", mTokenizer->getLocation().c_str());
                 return BAD_VALUE;
             }
 
@@ -180,7 +180,7 @@ status_t PropertyMap::Parser::parse() {
 
             if (mTokenizer->nextChar() != '=') {
                 ALOGE("%s: Expected '=' between property key and value.",
-                      mTokenizer->getLocation().string());
+                      mTokenizer->getLocation().c_str());
                 return BAD_VALUE;
             }
 
@@ -189,24 +189,24 @@ status_t PropertyMap::Parser::parse() {
             String8 valueToken = mTokenizer->nextToken(WHITESPACE);
             if (valueToken.find("\\", 0) >= 0 || valueToken.find("\"", 0) >= 0) {
                 ALOGE("%s: Found reserved character '\\' or '\"' in property value.",
-                      mTokenizer->getLocation().string());
+                    mTokenizer->getLocation().c_str());
                 return BAD_VALUE;
             }
 
             mTokenizer->skipDelimiters(WHITESPACE);
             if (!mTokenizer->isEol()) {
-                ALOGE("%s: Expected end of line, got '%s'.", mTokenizer->getLocation().string(),
-                      mTokenizer->peekRemainderOfLine().string());
+                ALOGE("%s: Expected end of line, got '%s'.", mTokenizer->getLocation().c_str(),
+                      mTokenizer->peekRemainderOfLine().c_str());
                 return BAD_VALUE;
             }
 
-            if (mMap->hasProperty(keyToken.string())) {
+            if (mMap->hasProperty(keyToken.c_str())) {
                 ALOGE("%s: Duplicate property value for key '%s'.",
-                      mTokenizer->getLocation().string(), keyToken.string());
+                      mTokenizer->getLocation().c_str(), keyToken.c_str());
                 return BAD_VALUE;
             }
 
-            mMap->addProperty(keyToken.string(), valueToken.string());
+            mMap->addProperty(keyToken.c_str(), valueToken.c_str());
         }
 
         mTokenizer->nextLine();
