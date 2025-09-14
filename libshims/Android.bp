@@ -56,4 +56,3 @@ cc_library_shared {
     system_ext_specific: true,
     vendor_available: true,
 }
-}
