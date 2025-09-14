@@ -1,4 +1,4 @@
-<manifest version="1.0" type="device" target-level="5">
+<manifest version="1.0" type="device" target-level="7">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -10,14 +10,9 @@
         <fqname>@7.0::IEffectsFactory/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.bluetooth.a2dp</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ISoundTriggerHw/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>
-        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+        <fqname>@2.1::ISoundTriggerHw/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
