@@ -21,3 +21,11 @@ allow btmac proc:file r_file_perms;
 # Vendor domains cannot set bluetooth_prop (neverallow in system/sepolicy).
 # BT MAC is provided by the controller on modern Android; btmac's property
 # setter will fail silently but BT still functions.
+
+# btmac queries IDME HAL (fireos.hardware.idme::IIdme) to read BT MAC address.
+# Denial: avc denied { find } interface=fireos.hardware.idme::IIdme
+#         scontext=u:r:btmac:s0 tcontext=u:object_r:hal_idme_hwservice:s0
+allow btmac hal_idme_hwservice:hwservice_manager find;
+allow btmac hwbinder_device:chr_file rw_file_perms;
+binder_use(btmac)
+binder_call(btmac, hal_idme_default)
