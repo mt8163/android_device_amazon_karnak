@@ -13,6 +13,7 @@
 #        scontext=u:r:init:s0 / u:r:mtk_hal_bluetooth:s0
 
 fireos.hardware.idme::IIdme                                      u:object_r:hal_idme_hwservice:s0
+vendor.mediatek.hardware.power::IPower                           u:object_r:mtk_hal_power_hwservice:s0
 fireos.hardware.amazonthermal::IAmazonThermal                    u:object_r:hal_fireos_amazonthermal_hwservice:s0
 fireos.hardware.connectivity.networkpower::INetworkPower         u:object_r:hal_fireos_networkpower_hwservice:s0
 fireos.hardware.fireosdha::IFireOsDha                            u:object_r:hal_fireos_dha_hwservice:s0

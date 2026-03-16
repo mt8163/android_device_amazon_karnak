@@ -1,0 +1,18 @@
+# Karnak: allow mtk_hal_power to register and query its own HIDL hwservice.
+#
+# Denial observed at boot:
+#   avc: denied { find } for interface=vendor.mediatek.hardware.power::IPower
+#        scontext=u:r:mtk_hal_power:s0
+#        tcontext=u:object_r:default_android_hwservice:s0
+#        tclass=hwservice_manager permissive=1
+#
+#   avc: denied { add } for interface=vendor.mediatek.hardware.power::IPower
+#        scontext=u:r:mtk_hal_power:s0
+#        tcontext=u:object_r:default_android_hwservice:s0
+#        tclass=hwservice_manager permissive=1
+#
+# Root cause: hwservice_contexts had no entry for vendor.mediatek.hardware.power::IPower,
+# so it fell to default_android_hwservice (neverallow on add/find).
+# Fix: hwservice_contexts entry + this allow for the correct type.
+allow mtk_hal_power mtk_hal_power_hwservice:hwservice_manager { add find };
+allow mtk_hal_power hidl_base_hwservice:hwservice_manager add;
