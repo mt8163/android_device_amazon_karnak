@@ -31,8 +31,6 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.1-impl \
     android.hardware.soundtrigger@2.0.vendor \
     android.hardware.bluetooth.audio-impl \
-    audio.bluetooth.default \
-    audio.primary.default \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -98,13 +96,15 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0.vendor \
     android.hardware.drm@1.1.vendor \
     android.hardware.drm@1.2.vendor \
     android.hardware.drm@1.3.vendor \
     android.hardware.drm@1.4.vendor \
     libmockdrmcryptoplugin \
-    libdrmclearkeyplugin 
+    libdrmclearkeyplugin
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -257,8 +257,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-service \
     libstagefright_omx.vendor \
-    libstagefright_softomx.vendor \
-    libstagefright_softomx_plugin.vendor \
 
 $(call soong_config_set,recovery,amonet_support,true)
 
