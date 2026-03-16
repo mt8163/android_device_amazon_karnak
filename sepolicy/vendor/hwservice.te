@@ -1,0 +1,12 @@
+# hwservice type declarations for Amazon/FireOS vendor HIDL interfaces
+#
+# These are custom vendor interfaces that don't have entries in
+# system/sepolicy/private/hwservice_contexts and therefore fall through
+# to default_android_hwservice, which has a neverallow on add.
+# We declare custom types here and map them in hwservice_contexts.
+
+type hal_idme_hwservice, hwservice_manager_type;
+type hal_fireos_amazonthermal_hwservice, hwservice_manager_type;
+type hal_fireos_networkpower_hwservice, hwservice_manager_type;
+type hal_fireos_dha_hwservice, hwservice_manager_type;
+type hal_dolby_dms_hwservice, hwservice_manager_type;

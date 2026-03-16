@@ -1,0 +1,23 @@
+# SELinux policy for /vendor/bin/btmac
+#
+# btmac runs once at boot (oneshot, user system) to read the BT MAC address
+# from /proc/idme/bt_mac_addr and write it so the Bluetooth stack can use it.
+#
+# Observed behaviour:
+#   - Reads /proc/idme/bt_mac_addr  (proc:s0 — requires read on proc type)
+#   - May set a system property (ro.vendor.btmac or similar)
+
+type btmac, domain;
+type btmac_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(btmac)
+
+# Read the IDME BT MAC address from procfs
+# /proc/idme/* is labeled u:object_r:proc:s0 on this device
+allow btmac proc:dir r_dir_perms;
+allow btmac proc:file r_file_perms;
+
+# persist.service.bdroid.bdaddr is labeled bluetooth_prop (platform property).
+# Vendor domains cannot set bluetooth_prop (neverallow in system/sepolicy).
+# BT MAC is provided by the controller on modern Android; btmac's property
+# setter will fail silently but BT still functions.

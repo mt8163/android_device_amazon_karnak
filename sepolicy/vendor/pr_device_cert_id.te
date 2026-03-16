@@ -1,0 +1,21 @@
+# SELinux policy for /vendor/bin/pr_device_cert_id
+#
+# PlayReady device certificate ID writer.
+# user media, group mediadrm drmrpc, class late_start, oneshot.
+# Reads the PlayReady device cert and writes it as a system property
+# (ro.vendor.playready.devicecertid or similar).
+
+type pr_device_cert_id, domain;
+type pr_device_cert_id_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(pr_device_cert_id)
+
+# TEE access to read device certificate
+allow pr_device_cert_id tee_device:chr_file rw_file_perms;
+
+# DRM provisioning data access
+allow pr_device_cert_id mediadrmserver:binder { call transfer };
+
+# ro.vendor.playready_* cannot be set by late_start services (only init/
+# vendor_init can set vendor_default_prop — neverallow in system/sepolicy).
+# The property setter in the binary will fail silently.

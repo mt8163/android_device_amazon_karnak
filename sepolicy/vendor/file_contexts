@@ -1,0 +1,65 @@
+# SELinux file_contexts for Amazon Karnak (MT8163)
+#
+# Only entries NOT already covered by:
+#   device/mediatek/sepolicy_vndr/basic/non_plat/file_contexts
+#   device/mediatek/sepolicy_vndr/bsp/non_plat/file_contexts
+#   system/sepolicy/vendor/file_contexts
+#
+# Covered by MTK/AOSP (do NOT re-add here):
+#   camerahalserver          -> mtk_hal_camera_exec       (MTK basic)
+#   kisd                     -> kisd_exec                 (MTK basic)
+#   rpmb_svc                 -> tee_exec                  (MTK bsp)
+#   nvram_daemon             -> nvram_daemon_exec          (MTK basic, via nvram_daemon.te)
+#   wmt_loader               -> wmt_loader_exec           (MTK basic)
+#   mtk_wmt_launcher         -> mtk_wmt_launcher_exec     (MTK basic)
+#   drm-service.clearkey     -> hal_drm_clearkey_exec     (MTK basic)
+#   drm@*.widevine           -> hal_drm_widevine_exec     (MTK basic)
+#   gatekeeper@1.0-service   -> hal_gatekeeper_default_exec (already labeled on device)
+#   keymaster@3.0-service    -> hal_keymaster_default_exec  (already labeled on device)
+#   keymaster_attestation    -> hal_keymaster_attestation_exec (already labeled)
+#   keymanage@1.0-service    -> mtk_hal_keymanage_exec    (already labeled)
+
+# ---------------------------------------------------------------------------
+# /vendor/bin/hw — HAL services currently labeled vendor_file:s0 on device
+# ---------------------------------------------------------------------------
+
+# AIDL lights HAL — uses system/sepolicy hal_light_default type
+/vendor/bin/hw/android\.hardware\.light-service\.mtk-common        u:object_r:hal_light_default_exec:s0
+
+# HIDL power HAL 1.3 — uses system/sepolicy hal_power_default type
+/vendor/bin/hw/android\.hardware\.power@1\.3-service\.mt8163       u:object_r:hal_power_default_exec:s0
+
+# MTK power HAL 2.0 stub — uses MTK's mtk_hal_power type
+# (MTK file_contexts covers mtkpower@1.0 and mtkpower@1.2 variants but NOT @2.0)
+/vendor/bin/hw/vendor\.mediatek\.hardware\.power@2\.0-service      u:object_r:mtk_hal_power_exec:s0
+
+# FireOS / Amazon proprietary HAL services
+/vendor/bin/hw/fireos\.hardware\.amazonthermal@1\.0-service         u:object_r:hal_fireos_amazonthermal_exec:s0
+/vendor/bin/hw/fireos\.hardware\.connectivity\.networkpower@1\.0-service  u:object_r:hal_fireos_networkpower_exec:s0
+/vendor/bin/hw/fireos\.hardware\.fireosdha@1\.0-service             u:object_r:hal_fireos_dha_exec:s0
+/vendor/bin/hw/fireos\.hardware\.idme@1\.1-service                  u:object_r:hal_idme_default_exec:s0
+
+# Dolby DMS HAL
+/vendor/bin/hw/vendor\.dolby\.hardware\.dms@1\.0-service            u:object_r:hal_dolby_dms_exec:s0
+
+# ---------------------------------------------------------------------------
+# /vendor/bin — standalone binaries currently labeled vendor_file:s0 on device
+# ---------------------------------------------------------------------------
+
+# btmac: reads MAC address from /proc/idme/bt_mac_addr, sets ro.bt.bdaddr_path property
+/vendor/bin/btmac                                                    u:object_r:btmac_exec:s0
+
+# Amazon DHA (Device Hardware Attestation) — hmac signer, cli tool, drm provisioning
+/vendor/bin/amzn_dha_hmac                                           u:object_r:amzn_dha_exec:s0
+/vendor/bin/amzn_dha_tool                                           u:object_r:amzn_dha_exec:s0
+/vendor/bin/amzn_drmprov_check                                      u:object_r:amzn_dha_exec:s0
+/vendor/bin/amzn_drmprov_tool                                       u:object_r:amzn_dha_exec:s0
+
+# Secure time daemon — persists DRM clock to /data/vendor/securetime
+/vendor/bin/securetime                                               u:object_r:securetime_exec:s0
+
+# Playready device cert ID writer — runs oneshot at late_start
+/vendor/bin/pr_device_cert_id                                       u:object_r:pr_device_cert_id_exec:s0
+
+# FireOS flags wiper — triggered by vendor.amazon.fos_flags.wipe property
+/vendor/bin/wipe_fos_flags                                          u:object_r:wipe_fos_flags_exec:s0

@@ -1,0 +1,35 @@
+# SELinux policy for fireos.hardware.amazonthermal@1.0-service
+#
+# FireOS Amazon Thermal HAL — HIDL server, user system, class hal.
+# Registers fireos.hardware.amazonthermal::IAmazonThermal over hwbinder.
+#
+# Denial observed:
+#   avc: denied { add } for interface=fireos.hardware.amazonthermal::IAmazonThermal
+#        scontext=u:r:init:s0 tcontext=u:object_r:default_android_hwservice:s0
+#        tclass=hwservice_manager permissive=1
+#   avc: denied { add } for interface=android.hidl.base::IBase
+#        scontext=u:r:init:s0 tcontext=u:object_r:hidl_base_hwservice:s0
+#        tclass=hwservice_manager permissive=1
+#
+# The hidl_base_hwservice add denial arises because the service is running in
+# u:r:init:s0 (no exec label on the binary).  Once we give it a proper domain
+# via hal_fireos_amazonthermal_exec, init_daemon_domain handles the transition
+# and the macros below cover the hwservice registration.
+
+type hal_fireos_amazonthermal, domain;
+type hal_fireos_amazonthermal_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_fireos_amazonthermal)
+
+# Register the HIDL interface with hwservicemanager
+allow hal_fireos_amazonthermal hal_fireos_amazonthermal_hwservice:hwservice_manager { add find };
+allow hal_fireos_amazonthermal hidl_base_hwservice:hwservice_manager add;
+
+# hwbinder IPC
+allow hal_fireos_amazonthermal hwbinder_device:chr_file rw_file_perms;
+binder_use(hal_fireos_amazonthermal)
+
+# Read thermal zone / sysfs nodes (same paths hal_thermal_default reads)
+r_dir_file(hal_fireos_amazonthermal, sysfs_thermal)
+allow hal_fireos_amazonthermal proc_thermal:dir r_dir_perms;
+allow hal_fireos_amazonthermal proc_thermal:file r_file_perms;

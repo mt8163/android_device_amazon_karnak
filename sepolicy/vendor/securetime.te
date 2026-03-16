@@ -1,0 +1,21 @@
+# SELinux policy for /vendor/bin/securetime
+#
+# Secure time daemon — user media, group mediadrm drmrpc, persistent service.
+# Creates and maintains /data/vendor/securetime for DRM clock storage.
+# Currently running in u:r:init:s0 because the binary is unlabeled.
+
+type securetime, domain;
+type securetime_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(securetime)
+
+# /data/vendor/securetime directory (created by init post-fs-data 0770 media mediadrm)
+allow securetime vendor_data_file:dir search;
+allow securetime securetime_data_file:dir create_dir_perms;
+allow securetime securetime_data_file:file create_file_perms;
+
+# TEE access for secure clock operations
+allow securetime tee_device:chr_file rw_file_perms;
+
+# DRM RPC socket access
+allow securetime drmserver:binder { call transfer };

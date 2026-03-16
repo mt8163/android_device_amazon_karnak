@@ -1,0 +1,25 @@
+# SELinux policy for fireos.hardware.connectivity.networkpower@1.0-service
+#
+# FireOS Network Power HAL — HIDL server, user system,
+# group net_admin system, class hal.
+# Manages network interface power states for connectivity power saving.
+
+type hal_fireos_networkpower, domain;
+type hal_fireos_networkpower_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_fireos_networkpower)
+
+# Register the HIDL interface with hwservicemanager
+allow hal_fireos_networkpower hal_fireos_networkpower_hwservice:hwservice_manager { add find };
+allow hal_fireos_networkpower hidl_base_hwservice:hwservice_manager add;
+
+# hwbinder IPC
+allow hal_fireos_networkpower hwbinder_device:chr_file rw_file_perms;
+binder_use(hal_fireos_networkpower)
+
+# net_admin capability for controlling network interfaces
+allow hal_fireos_networkpower self:capability net_admin;
+
+# Access to network interface control via sysfs
+allow hal_fireos_networkpower sysfs_net:dir r_dir_perms;
+allow hal_fireos_networkpower sysfs_net:file rw_file_perms;

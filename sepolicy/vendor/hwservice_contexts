@@ -1,0 +1,19 @@
+# hwservice_contexts for Amazon Karnak vendor HIDL interfaces
+#
+# Maps HIDL interface names to SELinux types so hwservicemanager can enforce
+# access.  Without these entries the interfaces fall to default_android_hwservice
+# which has a neverallow preventing any domain from adding to it.
+#
+# Denials fixed:
+#   avc: denied { add } interface=fireos.hardware.amazonthermal::IAmazonThermal
+#        scontext=u:r:init:s0 tcontext=u:object_r:default_android_hwservice:s0
+#   avc: denied { add } interface=android.hidl.base::IBase
+#        scontext=u:r:init:s0 tcontext=u:object_r:hidl_base_hwservice:s0
+#   avc: denied { find } interface=fireos.hardware.idme::IIdme
+#        scontext=u:r:init:s0 / u:r:mtk_hal_bluetooth:s0
+
+fireos.hardware.idme::IIdme                                      u:object_r:hal_idme_hwservice:s0
+fireos.hardware.amazonthermal::IAmazonThermal                    u:object_r:hal_fireos_amazonthermal_hwservice:s0
+fireos.hardware.connectivity.networkpower::INetworkPower         u:object_r:hal_fireos_networkpower_hwservice:s0
+fireos.hardware.fireosdha::IFireOsDha                            u:object_r:hal_fireos_dha_hwservice:s0
+vendor.dolby.hardware.dms::IDms                                  u:object_r:hal_dolby_dms_hwservice:s0

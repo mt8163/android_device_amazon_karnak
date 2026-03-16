@@ -1,0 +1,17 @@
+# property_contexts for Amazon Karnak
+#
+# Only entries NOT already covered by:
+#   device/mediatek/sepolicy_vndr/basic/non_plat/property_contexts
+#   system/sepolicy/private/property_contexts
+#
+# MTK already labels:
+#   persist.vendor.usb.*        vendor_mtk_usb_prop
+#   persist.vendor.audio.*      vendor_mtk_audio_prop
+#   persist.vendor.connsys.*    vendor_mtk_wmt_prop
+#   (and many more vendor.mtk.* prefixes)
+#
+# AOSP already labels:
+#   ro.boot.btmacaddr           bluetooth_prop
+
+# FireOS feature flags — written/cleared by wipe_fos_flags
+vendor.amazon.fos_flags.                                         u:object_r:vendor_amazon_fos_flags_prop:s0

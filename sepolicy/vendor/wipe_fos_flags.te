@@ -1,0 +1,22 @@
+# SELinux policy for /vendor/bin/wipe_fos_flags
+#
+# Triggered by: on property:vendor.amazon.fos_flags.wipe=1
+# Class: core, oneshot, disabled (started by property trigger)
+# Purpose: clears FireOS feature flag state — likely writes to nvdata or
+# a vendor data partition.
+
+type wipe_fos_flags, domain;
+type wipe_fos_flags_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(wipe_fos_flags)
+
+# Read the trigger property
+get_prop(wipe_fos_flags, vendor_amazon_fos_flags_prop)
+
+# Access nvdata / nvram for flag storage
+allow wipe_fos_flags nvdata_file:dir create_dir_perms;
+allow wipe_fos_flags nvdata_file:file create_file_perms;
+
+# Block device access (nvram partition on mmcblk0)
+allow wipe_fos_flags nvram_device:blk_file rw_file_perms;
+allow wipe_fos_flags block_device:dir search;

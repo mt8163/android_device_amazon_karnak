@@ -1,0 +1,27 @@
+# SELinux policy for vendor.dolby.hardware.dms@1.0-service
+#
+# Dolby DMS (Dolby Media Server) HAL — HIDL service, user media,
+# group audio media, class hal.
+# Provides Dolby audio processing services over hwbinder.
+# Creates /data/vendor/dolby on post-fs-data.
+
+type hal_dolby_dms, domain;
+type hal_dolby_dms_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_dolby_dms)
+
+# Register the HIDL interface with hwservicemanager
+allow hal_dolby_dms hal_dolby_dms_hwservice:hwservice_manager { add find };
+allow hal_dolby_dms hidl_base_hwservice:hwservice_manager add;
+
+# hwbinder IPC
+allow hal_dolby_dms hwbinder_device:chr_file rw_file_perms;
+binder_use(hal_dolby_dms)
+
+# Dolby data directory: /data/vendor/dolby (created by init post-fs-data)
+allow hal_dolby_dms vendor_data_file:dir search;
+allow hal_dolby_dms dolby_data_file:dir create_dir_perms;
+allow hal_dolby_dms dolby_data_file:file create_file_perms;
+
+# Audio device access (same as audio HAL)
+allow hal_dolby_dms audio_device:chr_file rw_file_perms;

@@ -1,0 +1,34 @@
+# SELinux policy for Amazon DHA (Device Hardware Attestation) tools
+#
+# Covers four binaries sharing the same domain:
+#   /vendor/bin/amzn_dha_hmac       — HMAC signing helper (oneshot)
+#   /vendor/bin/amzn_dha_tool       — DHA attestation CLI tool (oneshot)
+#   /vendor/bin/amzn_drmprov_check  — DRM provisioning check (oneshot)
+#   /vendor/bin/amzn_drmprov_tool   — DRM provisioning writer (oneshot)
+#
+# amzn_drmprov_check.rc: user root, group system drmrpc, oneshot
+# All run as short-lived helpers; they access the TEE/keystore and
+# vendor DRM provisioning data.
+
+type amzn_dha, domain;
+type amzn_dha_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(amzn_dha)
+
+# TEE device access for DRM/attestation operations
+allow amzn_dha tee_device:chr_file rw_file_perms;
+
+# Access DRM provisioning data directory (/data/vendor/mediadrm or similar)
+allow amzn_dha vendor_data_file:dir create_dir_perms;
+allow amzn_dha vendor_data_file:file create_file_perms;
+
+# Binder call into DRM server for provisioning
+allow amzn_dha drmserver:binder { call transfer };
+allow amzn_dha mediadrmserver:binder { call transfer };
+
+# Read IDME identity data from procfs (device serial, etc.)
+allow amzn_dha proc:dir r_dir_perms;
+allow amzn_dha proc:file r_file_perms;
+
+# dac_override/dac_read_search are in dac_override_allowed, a platform-only
+# attribute. No vendor domain can hold these (neverallow in system/sepolicy).

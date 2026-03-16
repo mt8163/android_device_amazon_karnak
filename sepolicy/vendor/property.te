@@ -1,0 +1,4 @@
+# Property type declarations for Amazon Karnak vendor-specific properties
+
+# FireOS feature flags — read/write by wipe_fos_flags
+vendor_internal_prop(vendor_amazon_fos_flags_prop)

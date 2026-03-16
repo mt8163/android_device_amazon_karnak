@@ -1,0 +1,42 @@
+# SELinux policy for FireOS IDME (ID Management) HAL
+#
+# fireos.hardware.idme@1.1-service: HIDL HAL server, user system, class hal
+# Provides fireos.hardware.idme::IIdme HIDL interface over hwbinder.
+#
+# Denial observed at boot:
+#   avc: denied { add } for interface=fireos.hardware.idme::IIdme
+#        scontext=u:r:init:s0 tcontext=u:object_r:default_android_hwservice:s0
+#        tclass=hwservice_manager permissive=1
+#
+# The service registers a vendor-custom HIDL interface; it gets
+# default_android_hwservice only because there is no hwservice_contexts entry
+# for it yet.  We define a custom hwservice type and label it here.
+# The hwservice_contexts entry goes in vendor/hwservice_contexts.
+
+type hal_idme_default, domain;
+type hal_idme_default_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_idme_default)
+
+# Register the HIDL interface with hwservicemanager
+allow hal_idme_default hal_idme_hwservice:hwservice_manager { add find };
+allow hal_idme_default hidl_base_hwservice:hwservice_manager add;
+
+# Read device identity items from /proc/idme/*
+# (labeled u:object_r:proc:s0 on this device)
+allow hal_idme_default proc:dir r_dir_perms;
+allow hal_idme_default proc:file r_file_perms;
+
+# Allow Binder IPC from clients (system_server, mtk_hal_bluetooth, etc.)
+binder_use(hal_idme_default)
+binder_call(hal_idme_default, binderservicedomain)
+binder_call(hal_idme_default, appdomain)
+
+# hwbinder transfer
+allow hal_idme_default hwbinder_device:chr_file rw_file_perms;
+
+# Allow mtk_hal_bluetooth to find the IDME hwservice
+# Denial: avc: denied { find } interface=fireos.hardware.idme::IIdme
+#         scontext=u:r:mtk_hal_bluetooth:s0 tcontext=u:object_r:default_android_hwservice:s0
+# (Once hwservice_contexts maps idme to hal_idme_hwservice this becomes a find on that type)
+allow mtk_hal_bluetooth hal_idme_hwservice:hwservice_manager find;

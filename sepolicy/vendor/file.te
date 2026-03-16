@@ -1,0 +1,7 @@
+# File type declarations for Amazon Karnak vendor data directories
+
+# /data/vendor/dolby — Dolby DMS working directory
+type dolby_data_file, file_type, data_file_type;
+
+# /data/vendor/securetime — secure time daemon working directory
+type securetime_data_file, file_type, data_file_type;
