@@ -49,3 +49,5 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep \
     Settings \
     TrebuchetQuickStep
+
+PRODUCT_GO_DEFAULTS_SUFFIX := _512
