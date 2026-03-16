@@ -1,6 +1,5 @@
 # Media
 debug.fdsan=warn_once
-debug.stagefright.ccodec=0
 media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.mtk_key_manager_kb_path=1
 ro.mtk_key_manager_support=1
@@ -31,7 +30,6 @@ dalvik.vm.minidebuginfo=false
 # Display
 ro.hardware.egl=mali
 debug.sf.disable_backpressure=1
-debug.sf.disable_client_composition_cache=1
 debug.sf.enable_transaction_tracing=false
 debug.sf.use_phase_offsets_as_durations=1
 debug.sf.late.sf.duration=27600000
@@ -44,6 +42,15 @@ debug.sf.hwc.min.duration=17000000
 ro.vendor.mtk_pq_color_mode=1
 ro.opengles.version=196609
 service.sf.prime_shader_cache=0
+# Fixed 60 Hz display — skip refresh-rate content detection overhead
+# Backed by ro.surface_flinger.use_content_detection_for_refresh_rate
+# in SurfaceFlingerProperties.sysprop
+ro.surface_flinger.use_content_detection_for_refresh_rate=false
+# Use Skia GL (non-threaded) for RenderEngine — MT8163 has no Vulkan
+# support so the default path probes Vulkan and falls back, wasting time.
+# Valid values: skiagl skiaglthreaded skiavk skiavkthreaded
+# Handled in SurfaceFlinger.cpp:chooseRenderEngineType()
+debug.renderengine.backend=skiagl
 
 # Keymaster
 ro.crypto.volume.filenames_mode=aes-256-cts
