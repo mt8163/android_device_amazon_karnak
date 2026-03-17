@@ -74,6 +74,7 @@ TARGET_BOOTANIMATION_HALF_RES := true
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl-mediatek \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     Aperture
@@ -196,8 +197,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service-mediatek \
     android.frameworks.sensorservice@1.0 \
     android.frameworks.sensorservice@1.0.vendor \
+    libsensorndkbridge \
     sensors.mt8163 \
-    libsensorndkbridge
+    libsensorndkbridge_vendor
 
 # Thermal
 PRODUCT_PACKAGES +=\
