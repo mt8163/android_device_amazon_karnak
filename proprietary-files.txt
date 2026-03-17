@@ -260,6 +260,7 @@ vendor/lib/vendor.dolby.hardware.dms@1.0.so
 
 # Sensors
 vendor/lib/libksensor.so
+vendor/lib/libsensorndkbridge.so:vendor/lib/libsensorndkbridge_vendor.so
 
 # Wifi
 vendor/bin/wmt_concurrency
@@ -292,6 +293,7 @@ vendor/etc/init/btmac.rc
 vendor/lib/libbluetooth_mtk.so
 
 # Camera
+vendor/lib/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.ccap@1.0-impl.so
 vendor/lib/vendor.mediatek.hardware.camera.ccap@1.0.so
 vendor/lib/vendor.mediatek.hardware.camera.device@1.1.so

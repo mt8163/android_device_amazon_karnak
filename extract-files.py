@@ -34,8 +34,12 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib/libmtkcam_stdutils.so': blob_fixup()
         .add_needed('libshim_mtkcam.so')
         .replace_needed('libutils.so', 'libutils-v30.so'),
+    'vendor/lib/libcam.hal3a.v3.so': blob_fixup()
+        .replace_needed('libsensorndkbridge.so', 'libsensorndkbridge_vendor.so'),
     'vendor/lib/libcam.client.so': blob_fixup()
         .add_needed('libshim_gui.so'),
+    'vendor/lib/libfeatureio.so': blob_fixup()
+        .replace_needed('libsensorndkbridge.so', 'libsensorndkbridge_vendor.so'),
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
         .add_needed('libshim_gui.so'),
     'vendor/lib/hw/fireos.hardware.audio@4.0-impl.so': blob_fixup()
