@@ -11,6 +11,8 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 # Characteristics
 PRODUCT_CHARACTERISTICS := tablet
 
+WITH_ADB_INSECURE := true
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
