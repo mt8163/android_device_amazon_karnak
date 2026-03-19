@@ -104,6 +104,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt8163
+BOARD_RECOVERY_RAMDISK_OVERLAY := $(DEVICE_PATH)/recovery/root
 
 # Display
 TARGET_SCREEN_DENSITY := 213
