@@ -6,6 +6,5 @@
 
 soong_namespace {
     imports: [
-        "hardware/amazon",
     ],
 }

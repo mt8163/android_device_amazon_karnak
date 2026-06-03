@@ -11,19 +11,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 # Inherit from device makefile.
 $(call inherit-product, device/amazon/karnak/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product-if-exists, vendor/lineage/config/common_full_tablet_wifionly.mk)
-
-# Inherit GApps
-$(call inherit-product-if-exists, vendor/vendor_gms/gms_full_tablet_wifionly.mk)
-
 # Android Go optimisations
 $(call inherit-product, device/amazon/karnak/go_opt.mk)
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-PRODUCT_NAME := lineage_karnak
+PRODUCT_NAME := aosp_karnak
 PRODUCT_DEVICE := karnak
 PRODUCT_MANUFACTURER := amzn
 PRODUCT_BRAND := google

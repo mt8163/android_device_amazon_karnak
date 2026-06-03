@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_karnak.mk
+    $(LOCAL_DIR)/aosp_karnak.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_karnak-user \
-    lineage_karnak-userdebug \
-    lineage_karnak-eng
+    aosp_karnak-trunk_staging-user \
+    aosp_karnak-trunk_staging-userdebug \
+    aosp_karnak-trunk_staging-eng
